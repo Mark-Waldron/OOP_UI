@@ -36,7 +36,6 @@ class Screen
   void hudOutline()
   {
     float divide_w = (width * 0.42f + ((width / 15.0f) - map(50, 0, finalx, 0, width))) / 4.0f;
-    float divide_h = (height * 0.13 + height * 0.87) / 3.0f;
     float hud1 = height * 0.14 + map(3.0f, 0, finaly, 0, height);
     float hud2 = height * 0.14 + map(7.0f, 0, finaly, 0, height);
     float hud3 = height * 0.14 + map(17.0f, 0, finaly, 0, height);
@@ -105,7 +104,6 @@ class Screen
   {
     int d = day();
     int m = month();
-    int y = year();
     textSize(size);
     
     if (d < 10)
