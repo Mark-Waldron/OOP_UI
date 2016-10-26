@@ -135,6 +135,7 @@ class Screen
   void temperature()
   {
     float angle = 354.0f;
+    
     pushMatrix();
     translate(map(130.0f, 0, finalx, 0, width), map(72.0f, 0, finaly, 0, height));
     rotate((((TWO_PI) / 360.f) * angle));

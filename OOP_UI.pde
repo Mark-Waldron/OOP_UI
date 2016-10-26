@@ -25,7 +25,8 @@ void draw()
   layout.screenDraw();
   fill(0);
   node.caller();
-  click.hover();
+  noCursor();
+  //click.hover();
   //line(width / 2.0f, 0, width/2.0f, height);
   //line(0, height / 2.0f, width, height / 2.0f);
   println(mouseX + " " + mouseY);
