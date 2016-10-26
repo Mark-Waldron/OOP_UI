@@ -134,6 +134,25 @@ class Screen
   
   void temperature()
   {
-    text("SPACE", width / 2, height / 2);
+    float angle = 354.0f;
+    pushMatrix();
+    translate(map(130.0f, 0, finalx, 0, width), map(72.0f, 0, finaly, 0, height));
+    rotate((((TWO_PI) / 360.f) * angle));
+    text("Capsule", 0, 0);
+    rotate(-(((TWO_PI) / 360.f) * angle));
+    
+    angle = 355.205f;
+    
+    rotate((((TWO_PI) / 360.f) * angle));
+    text(":", map(95.0f, 0, finalx, 0, width), map(-1.5f, 0, finaly, 0, height));
+    rotate(-(((TWO_PI) / 360.f) * angle));
+    
+    angle = 358.5f;
+    
+    rotate((((TWO_PI) / 360.f) * angle));
+    text("45'", map(140.0f, 0, finalx, 0, width), map(-4.5f, 0, finaly, 0, height));
+    rotate(-(((TWO_PI) / 360.f) * angle));
+    
+    popMatrix();
   }//end temperature()
 }//end CLASS Screen

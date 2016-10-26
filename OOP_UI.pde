@@ -9,12 +9,12 @@ float finaly = 500;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   strokeWeight(2);
-  //textFont(mono);
+  textFont(mono);
   smooth();
 }//end setup
 
