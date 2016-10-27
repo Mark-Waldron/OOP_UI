@@ -25,6 +25,7 @@ class Outline
     line(width * 0.58f + divide_w, hud1, width * 0.58f + divide_w * 2.0f, hud2);
     line(width * 0.58f + divide_w * 2.0f, hud2, width * 0.58f + divide_w * 3.0f, hud3);
     line(width * 0.58f + divide_w * 3.0f, hud3, width - edge, height * .19f);
+    clock();
   }//end hudOutline()
   
   void clock()
