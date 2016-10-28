@@ -2,6 +2,7 @@ Screen layout = new Screen();
 Cursor click = new Cursor();
 AI node = new AI();
 Outline frame = new Outline();
+Main_Menu upperMenu = new Main_Menu();
 
 PFont mono;
 
@@ -19,6 +20,7 @@ void setup()
   background(#121212);
   layout.screenDraw();
   frame.hudOutline();
+  upperMenu.mainOptions();
 }//end setup
 
 void draw()
