@@ -15,7 +15,7 @@ class Outline
     float h = height * 0.14 + map(7.0f, 0, finaly, 0, height);
     
     stroke(#006600);
-    strokeWeight(2);
+    strokeWeight(2.0f);
     fill(0);
     
     //Bottom line clock
@@ -39,6 +39,7 @@ class Outline
     line(width * 0.58f + divide_w * 2.0f, h, width * 0.58f + divide_w * 2.0f, h + diff);
     line(width * 0.42f - divide_w * 2.0f, h, width * 0.42f - divide_w * 2.0f, h + diff);
     
+    upperMenu.mainOptions();
     clock();
   }//end hudOutline()
   
@@ -93,7 +94,7 @@ class Outline
     
     if (d < 10)
     {
-      text("0" + d, width / 2, height / 2);
+      text("0" + d, width * .65f, map(63.0f, 0, finaly, 0, height));
     }
     else
     {

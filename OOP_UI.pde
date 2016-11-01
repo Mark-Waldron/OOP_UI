@@ -3,6 +3,7 @@ Cursor click = new Cursor();
 AI node = new AI();
 Outline frame = new Outline();
 Main_Menu upperMenu = new Main_Menu();
+Home homePage = new Home();
 
 PFont mono;
 
@@ -10,6 +11,8 @@ float finalx = 750;
 float finaly = 500;
 
 float keyCount = 2.0;
+float keyEntered = keyCount;
+float count = 0;
 
 void setup()
 {
@@ -22,22 +25,36 @@ void setup()
   background(#121212);
   layout.screenDraw();
   frame.hudOutline();
-  upperMenu.mainOptions();
 }//end setup
 
 void draw()
 {
   noFill();
-  //noCursor();
-  upperMenu.mainOptions();
+  noCursor();
+  background(#121212);
+  layout.screenDraw();
+  frame.hudOutline();
+  switch((int)keyEntered)
+  {
+    case 2:
+    {
+      homePage.radar();
+    }//end case 2
+  }//end if
+  //homePage.radar();
   //click.hover();
   //line(width / 2.0f, 0, width/2.0f, height);
   //line(0, height / 2.0f, width, height / 2.0f);
-  println(mouseX + " " + mouseY);
 }//end draw
 
 void keyPressed()
 {
+  if (keyCode == ENTER)
+  {
+    keyEntered = keyCount;
+    layout.screenDraw();
+    frame.hudOutline();
+  }//end if
   if (keyCode == RIGHT)
   {
     keyCount += 1.0f;

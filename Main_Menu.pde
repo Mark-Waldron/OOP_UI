@@ -14,7 +14,7 @@ class Main_Menu
     
     noStroke();
     fill(0);
-    rect(gap + map(1, 0, finalx, 0, width), h + map(1, 0, finalx, 0, width), reset, diff - map(1.2f, 0, finaly, 0, height));
+    //rect(gap + map(1, 0, finalx, 0, width), h + map(1, 0, finalx, 0, width), reset, diff - map(1.2f, 0, finaly, 0, height));
     //line(width * 0.58f + divide * 2.0f, h + diff, width * 0.42f - divide * 2.0f, h + diff);
     textAlign(CENTER);
     
