@@ -2,7 +2,7 @@ class Outline
 {
   void hudOutline()
   {
-    float divide_w = (width * 0.42f + ((width / 15.0f) - map(50, 0, finalx, 0, width))) / 4.0f;
+    float divide_w = width * 0.105;
     float hud1 = height * 0.14 + map(3.0f, 0, finaly, 0, height);
     float hud2 = height * 0.14 + map(7.0f, 0, finaly, 0, height);
     float hud3 = height * 0.14 + map(17.0f, 0, finaly, 0, height);

@@ -11,14 +11,14 @@ PFont mono;
 float finalx = 750;
 float finaly = 500;
 
-float keyCount = 2.0;
+float keyCount = 1.0;
 float keyEntered = keyCount;
 float count = 0;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
