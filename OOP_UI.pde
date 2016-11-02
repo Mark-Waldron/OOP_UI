@@ -4,6 +4,7 @@ AI node = new AI();
 Outline frame = new Outline();
 Main_Menu upperMenu = new Main_Menu();
 Home homePage = new Home();
+Health vitals = new Health();
 
 PFont mono;
 
@@ -16,8 +17,8 @@ float count = 0;
 
 void setup()
 {
-  size(750, 500);
-  //fullScreen();
+  //size(750, 500);
+  fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
@@ -36,9 +37,15 @@ void draw()
   frame.hudOutline();
   switch((int)keyEntered)
   {
+    case 1:
+    {
+      vitals.drawGraph();
+      break;
+    }
     case 2:
     {
       homePage.radar();
+      break;
     }//end case 2
   }//end if
   //homePage.radar();
