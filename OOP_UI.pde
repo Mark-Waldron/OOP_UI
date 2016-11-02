@@ -16,8 +16,8 @@ float count = 0;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
@@ -52,8 +52,6 @@ void keyPressed()
   if (keyCode == ENTER)
   {
     keyEntered = keyCount;
-    layout.screenDraw();
-    frame.hudOutline();
   }//end if
   if (keyCode == RIGHT)
   {

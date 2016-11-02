@@ -19,5 +19,10 @@ class Home
     fill(#006600);
     arc(width * .85, height * .75f, diameter, diameter, (TWO_PI / 360.0f) * count, (TWO_PI / 360.0f) * count + PI / 4.0f);
     count++;
+    
+    if (count > 360)
+    {
+      count = 0.0f;
+    }//end if
   }//end radar
 }//end class

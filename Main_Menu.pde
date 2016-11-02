@@ -14,10 +14,9 @@ class Main_Menu
     
     noStroke();
     fill(0);
-    //rect(gap + map(1, 0, finalx, 0, width), h + map(1, 0, finalx, 0, width), reset, diff - map(1.2f, 0, finaly, 0, height));
+    rect(gap + map(1, 0, finalx, 0, width), h + map(1, 0, finalx, 0, width), reset, diff - map(1.2f, 0, finaly, 0, height));
     //line(width * 0.58f + divide * 2.0f, h + diff, width * 0.42f - divide * 2.0f, h + diff);
     textAlign(CENTER);
-    
     
     for (int i = 1; i < 5; i++)
     {
@@ -29,7 +28,7 @@ class Main_Menu
     
     fill(#006600);
     
-    rect(gap + map(1, 0, finalx, 0, width) + menu_div * keyCount, h + map(1.4f, 0, finaly, 0, height), menu_div - map(1.5, 0, finalx, 0, width), diff - map(1.5f, 0, finaly, 0, height));
+    rect(gap + map(1, 0, finalx, 0, width) + menu_div * keyCount, h + map(1.4f, 0, finaly, 0, height), menu_div - map(1.9f, 0, finalx, 0, width), diff - map(1.5f, 0, finaly, 0, height));
     
     for (int i = 0; i < 5; i++)
     {

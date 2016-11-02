@@ -33,7 +33,6 @@ class Outline
     line(width * 0.58f + divide_w * 2.0f, hud2, width * 0.58f + divide_w * 3.0f, hud3);
     line(width * 0.58f + divide_w * 3.0f, hud3, width - edge, height * .19f);
     
-    
     //Menu
     arc(width / 2.0f, height * 0.163, topx, topy, (PI / 180.0f) * 51.7f, (PI / 180.0f) * 128.3);
     line(width * 0.58f + divide_w * 2.0f, h, width * 0.58f + divide_w * 2.0f, h + diff);
