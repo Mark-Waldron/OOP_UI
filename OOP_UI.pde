@@ -1,5 +1,4 @@
 Screen layout = new Screen();
-Cursor click = new Cursor();
 AI node = new AI();
 Outline frame = new Outline();
 Main_Menu upperMenu = new Main_Menu();
@@ -17,8 +16,8 @@ float count = 0;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
@@ -40,6 +39,7 @@ void draw()
     case 1:
     {
       vitals.drawGraph();
+      vitals.heartRate(width / 2);
       break;
     }
     case 2:
@@ -48,32 +48,4 @@ void draw()
       break;
     }//end case 2
   }//end if
-  //homePage.radar();
-  //click.hover();
-  //line(width / 2.0f, 0, width/2.0f, height);
-  //line(0, height / 2.0f, width, height / 2.0f);
 }//end draw
-
-void keyPressed()
-{
-  if (keyCode == ENTER)
-  {
-    keyEntered = keyCount;
-  }//end if
-  if (keyCode == RIGHT)
-  {
-    keyCount += 1.0f;
-  }//end if
-  if (keyCode == RIGHT && keyCount == 5)
-  {
-    keyCount = 0;
-  }
-  if (keyCode == LEFT && keyCount == 0)
-  {
-    keyCount = 5;
-  }
-  if (keyCode == LEFT)
-  {
-    keyCount -= 1.0;
-  }//end else if
-}//end keyPressed
