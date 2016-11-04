@@ -1,16 +1,18 @@
+float graphCount = 1.0f;
+
 class Health
 {
   void drawGraph()
   {
-    float h = height / 2.0f + map(22, 0, finaly, 0, height);
     float ten = map(15.0f, 0, finalx + finaly, 0, width + height);
     float widthEnd = map(592.5f, 0, finalx, 0, width);
+    float h = height / 2.0f + map(22, 0, finaly, 0, height);
     
     stroke(#006600);
     strokeWeight(1.0f);
     
-    fill(0);
-    rect(width / 2.0f, h - (ten * 5.0f), widthEnd - width / 2.0f, (ten * 10.0f));
+    //fill(0);
+    //rect(width / 2.0f, h - (ten * 5.0f), widthEnd - width / 2.0f, (ten * 10.0f));
     
     line(width / 2.0f, h, widthEnd, h);
     
@@ -30,74 +32,17 @@ class Health
   
   void heartRate(float x1)
   {
-    float angle1 = 0.0f;
     float space = 1.0f;
-    float x2 = x1 + space;
-    float angle2 = angle1 + space;
+    float h = height / 2.0f + map(22, 0, finaly, 0, height);
     
     strokeWeight(2.0f);
     
-    if (x2 > 100.0f &&  x2 <= 120.0f)
-    {
-      line(x1, (height / 2.0f) - angle1 * tan(TWO_PI/12), x2, (height / 2.0f) -angle2 * tan(TWO_PI/12));
-      angle1+=3.0f;
-      angle2+=3.0f;
-    }//end if
-    else if (x2 > 120.0f &&  x2 <= 140.0f)
-    {
-      angle1-=3.0f;
-      angle2-=3.0f;
-      line(x1, (height / 2.0f) - angle2 * tan(TWO_PI/12), x2, (height / 2.0f) - angle1 * tan(TWO_PI/12));
-    }//end else if
-    else
-    {
-    line (x1, height / 2.0f, x2, height / 2.0f);
-    }//end else
+    line (x1 + space * (graphCount - 1.0f), h, x1 + space * graphCount, h);
+    graphCount += 1.0f;
     
-    x2+=space;
-    x1+=space;
+    if (graphCount > map(592.5f, 0, finalx, 0, width) - x1)
+    {
+      graphCount = 0.0f;
+    }
   }//end heartRate()
 }//end CLASS Health
-
-/*
-void setup()
-{
-  //size(750,500);
-  fullScreen();
-  background(0);
-  stroke(255);
-  frameRate(60);
-}//end setup
-
-float x1 = 0;
-float angled1 = 0.0f;
-float angle1 = 0;
-
-void draw()
-{
-  float space = 1.0f;
-  float x2 = x1 + space;
-  float angle2 = angle1 + space + 1.0f;
-  
-  if (x2 > 100.0f &&  x2 <= 120.0f)
-  {
-    line(x1, (height / 2.0f) - angle1 * tan(TWO_PI/12), x2, (height / 2.0f) -angle2 * tan(TWO_PI/12));
-    angle1+=3.0f;
-    angle2+=3.0f;
-  }//end if
-  else if (x2 > 120.0f &&  x2 <= 140.0f)
-  {
-    angle1-=3.0f;
-    angle2-=3.0f;
-    line(x1, (height / 2.0f) - angle2 * tan(TWO_PI/12), x2, (height / 2.0f) - angle1 * tan(TWO_PI/12));
-  }//end else if
-  else
-  {
-    line (x1, height / 2.0f, x2, height / 2.0f);
-  }
-  x2+=space;
-  x1+=space;
-  
-  
-}//end draw
-*/

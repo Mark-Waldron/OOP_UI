@@ -4,6 +4,7 @@ Outline frame = new Outline();
 Main_Menu upperMenu = new Main_Menu();
 Home homePage = new Home();
 Health vitals = new Health();
+DateTime calendar = new DateTime();
 
 PFont mono;
 
@@ -31,9 +32,9 @@ void draw()
 {
   noFill();
   noCursor();
-  background(#121212);
-  layout.screenDraw();
-  frame.hudOutline();
+  
+  defaultSetup();
+  
   switch((int)keyEntered)
   {
     case 1:
@@ -49,3 +50,11 @@ void draw()
     }//end case 2
   }//end if
 }//end draw
+
+void defaultSetup()
+{
+  background(#121212);
+  layout.screenDraw();
+  frame.hudOutline();
+  calendar.clock();
+}//end defaultSetup()
