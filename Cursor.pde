@@ -1,3 +1,4 @@
+/*
 class Cursor
 {
   void hover()
@@ -15,3 +16,4 @@ class Cursor
     ellipse(mouseX, mouseY, 1.5, 1.5);
   }//end hover()
 }//end CLASS Cursor
+*/

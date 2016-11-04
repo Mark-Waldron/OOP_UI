@@ -38,6 +38,6 @@ class Outline
     line(width * 0.58f + divide_w * 2.0f, h, width * 0.58f + divide_w * 2.0f, h + diff);
     line(width * 0.42f - divide_w * 2.0f, h, width * 0.42f - divide_w * 2.0f, h + diff);
     
-    upperMenu.mainOptions();
+    
   }//end hudOutline()
 }//end CLASS Outline

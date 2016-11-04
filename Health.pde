@@ -8,7 +8,7 @@ class Health
     float widthEnd = map(592.5f, 0, finalx, 0, width);
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
     
-    stroke(#006600);
+    stroke(0, 61.0f, 0);
     strokeWeight(1.0f);
     
     //fill(0);
@@ -35,6 +35,7 @@ class Health
     float space = 1.0f;
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
     
+    stroke(#006600);
     strokeWeight(2.0f);
     
     line (x1 + space * (graphCount - 1.0f), h, x1 + space * graphCount, h);
@@ -43,6 +44,7 @@ class Health
     if (graphCount > map(592.5f, 0, finalx, 0, width) - x1)
     {
       graphCount = 0.0f;
+      defaultSetup();
     }
   }//end heartRate()
 }//end CLASS Health
