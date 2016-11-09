@@ -1,5 +1,3 @@
-float graphCount = 1.0f;
-
 class Health
 {
   void drawGraph()
@@ -32,19 +30,25 @@ class Health
   
   void heartRate(float x1)
   {
-    float space = 1.0f;
+    float widthEnd = map(592.5f, 0, finalx, 0, width);
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
+    float diff = map(15.0f, 0, finalx + finaly, 0, width + height) * 5.0f;
+    float speed = map(1.0f, 0, finalx, 0, width);
     
     stroke(#006600);
     strokeWeight(2.0f);
     
-    line (x1 + space * (graphCount - 1.0f), h, x1 + space * graphCount, h);
-    graphCount += 1.0f;
+    line ((x1 + speed) + (graphCount), h, (x1 + speed) + (speed + graphCount), h);
+    graphCount += speed;
     
-    if (graphCount > map(592.5f, 0, finalx, 0, width) - x1)
+    if ((graphCount + speed * 2.0f) > map(592.5f, 0, finalx, 0, width) - x1)
     {
       graphCount = 0.0f;
-      defaultSetup();
+      fill(0);
+      stroke(0);
+      rect(x1, h - diff, widthEnd - x1, diff * 2.0f);
+      drawGraph();
+      //defaultSetup();
     }
   }//end heartRate()
 }//end CLASS Health

@@ -15,6 +15,8 @@ float keyEntered = keyCount;
 float count = 0;
 int change = 0;
 
+float graphCount = 0.0f;
+
 void setup()
 {
   //size(750, 500);
@@ -38,10 +40,10 @@ void draw()
       if (change == 0)
       {
         defaultSetup();
+        vitals.drawGraph();
         change++;
       }//end if
       upperMenu.mainOptions();
-      vitals.drawGraph();
       vitals.heartRate(width / 2);
       break;
     }
