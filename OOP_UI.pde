@@ -1,3 +1,6 @@
+/*
+  Creation of objects 
+*/
 Screen layout = new Screen();
 Outline frame = new Outline();
 Main_Menu upperMenu = new Main_Menu();
@@ -5,17 +8,25 @@ Home homePage = new Home();
 Health vitals = new Health();
 DateTime calendar = new DateTime();
 
+//Global font variable
 PFont mono;
 
+//Inital width and heights to be used for map()
 float finalx = 750;
 float finaly = 500;
 
+//Global variables that alter the menu
 float keyCount = 1.0;
 float keyEntered = keyCount;
 float count = 0;
 int change = 0;
 
+//Global variable for the speed of the heart rate monitor
 float graphCount = 0.0f;
+
+/*
+  Initalises program and is called once throughout runtime
+*/
 
 void setup()
 {
@@ -28,45 +39,59 @@ void setup()
   defaultSetup();
 }//end setup
 
+/*
+  The following function acts as the main and is called 60 per second
+*/
+
 void draw()
 {
+  //Default removal of fill and the cursor
   noFill();
   noCursor();
   
+  //Swtich statement to change menu options
   switch((int)keyEntered)
   {
+    //Health
     case 1:
     {
       if (change == 0)
       {
-        defaultSetup();
-        vitals.drawGraph();
-        change++;
+        defaultSetup();//Default setup call
+        vitals.drawGraph();//Draws graph
+        change++;//Ensures that graph is drawn once
       }//end if
-      upperMenu.mainOptions();
-      vitals.heartRate(width / 2);
+      upperMenu.mainOptions();//Menu rendering
+      vitals.heartRate(width / 2);//Heart rate render
       break;
-    }
+    }//end HEALTH case
     case 2:
     {
-      defaultSetup();
-      upperMenu.mainOptions();
-      homePage.radar();
-      change = 0;
+      defaultSetup();//Default setup call
+      upperMenu.mainOptions();//Menu rendering
+      homePage.radar();//Radar draw
+      change = 0;//Heart Rate check
       break;
-    }//end case 2
+    }//end HOME case
     default:
     {
-      defaultSetup();
-      upperMenu.mainOptions();
-    }
+      defaultSetup();//Default setup call
+      upperMenu.mainOptions();//Menu render
+      change = 0;//Heart Rate check
+    }//end default
   }//end if
 }//end draw
+
+/*
+  Method that acts as the default screen layout
+  This function is primarily called when a menu option
+  is changed
+*/
 
 void defaultSetup()
 {
   background(#121212);
-  layout.screenDraw();
-  frame.hudOutline();
-  calendar.clock();
+  layout.screenDraw();//Curved Screen draw method
+  frame.hudOutline();//Frame draw method
+  calendar.clock();//Clock display method
 }//end defaultSetup()

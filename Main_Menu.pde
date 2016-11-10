@@ -1,8 +1,13 @@
 class Main_Menu
 {
+  /*
+    A method that will display the menu options on screen
+    and will track the users choice
+  */
+  
   void mainOptions()
   {
-    textFont(mono);
+    //Method declarations
     String choices[] = {"JACK", "HEAL", "HOME", "SHIP","LOGS"};
     float text_sizes[] = {30.0f, 30.0f, 30.0f, 30.0f, 30.0f};
     float divide = (width * 0.42f + ((width / 15.0f) - map(50, 0, finalx, 0, width))) / 4.0f;
@@ -12,12 +17,16 @@ class Main_Menu
     float reset = (width * 0.58f + divide * 2.0f) - (width * 0.42f - divide * 2.0f) - map(1.5f, 0, finalx, 0, width);
     float gap = (width * 0.42f - divide * 2.0f);
     
+    //Setup to draw menu background
+    textFont(mono);
     noStroke();
     fill(0);
     rect(gap + map(1, 0, finalx, 0, width), h + map(1, 0, finalx, 0, width), reset, diff - map(1.2f, 0, finaly, 0, height));
     //line(width * 0.58f + divide * 2.0f, h + diff, width * 0.42f - divide * 2.0f, h + diff);
     textAlign(CENTER);
     
+    /*
+    //Loop to draw partition between each menu option
     for (int i = 1; i < 5; i++)
     {
       float x1 = gap + menu_div * (float)i;
@@ -25,17 +34,20 @@ class Main_Menu
       fill(#006600);
       line(x1, h, x1, h + diff);
     }//end for
+    */
     
     fill(#006600);
     
     rect(gap + map(1, 0, finalx, 0, width) + menu_div * keyCount, h + map(1.4f, 0, finaly, 0, height), menu_div - map(1.9f, 0, finalx, 0, width), diff - map(1.5f, 0, finaly, 0, height));
     
+    //For loop to display menu options
     for (int i = 0; i < 5; i++)
     {
       float x1 = gap + menu_div * (float)i;
       float x2 = x1 + menu_div / 2.0f;
       float y = (h + diff) - map(7, 0, finaly, 0, height);
       
+      //Changes the font colour of text if hovered
       if (i == keyCount)
       {
         fill(0);

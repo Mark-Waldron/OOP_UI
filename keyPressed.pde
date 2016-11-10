@@ -1,3 +1,7 @@
+/*
+  Mrthod that retrieves a users key inputs
+*/
+
 void keyPressed()
 {
   if (keyCode == ENTER)

@@ -1,5 +1,9 @@
 class Health
 {
+  /*
+    Method to draw the heart rate monitor's backrgound
+  */
+  
   void drawGraph()
   {
     float ten = map(15.0f, 0, finalx + finaly, 0, width + height);
