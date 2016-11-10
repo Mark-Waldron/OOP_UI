@@ -1,3 +1,4 @@
+float angle = 0.0f;
 class Health
 {
   /*
@@ -6,7 +7,7 @@ class Health
   
   void drawGraph()
   {
-    float ten = map(15.0f, 0, finalx + finaly, 0, width + height);
+    float ten = map(15.0f, 0, finaly, 0, height);
     float widthEnd = map(592.5f, 0, finalx, 0, width);
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
     
@@ -36,23 +37,56 @@ class Health
   {
     float widthEnd = map(592.5f, 0, finalx, 0, width);
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
-    float diff = map(15.0f, 0, finalx + finaly, 0, width + height) * 5.0f;
+    float row = map(15.0f, 0, finaly, 0, height);
+    float diff = row * 5.0f;
     float speed = map(1.0f, 0, finalx, 0, width);
+    float minor = map(finalx / 6.0f, 0, finalx, x1, widthEnd);
+    float spikeRange = map(10.0f, 0, finalx, 0, width);
+    //float heightRange = map(150.0f, 0, 150.0f, h, h - diff);
+    float angleHeight = map(30.0f, 0, 150.0f, h, h - diff);
+    
+    float at = atan(angleHeight/(minor));
     
     stroke(#006600);
-    strokeWeight(2.0f);
+    strokeWeight(1.0f);
     
-    line ((x1 + speed) + (graphCount), h, (x1 + speed) + (speed + graphCount), h);
-    graphCount += speed;
+    line(minor, 0, minor, height);
+    line(minor - spikeRange, 0, minor - spikeRange, height);
+    line(minor + spikeRange, 0, minor + spikeRange, height);
     
-    if ((graphCount + speed * 2.0f) > map(592.5f, 0, finalx, 0, width) - x1)
+    line(0, angleHeight, width, angleHeight);
+    
+    //strokeWeight(2.0f);
+    
+    if ((graphCount + speed) < (minor - spikeRange) || (graphCount + speed) > (minor + spikeRange))
     {
-      graphCount = 0.0f;
+      graphCount += speed;
+      line (graphCount, h, graphCount + speed, h);
+    }///end if
+    else if ((graphCount + speed) >= (minor - spikeRange) && (graphCount + speed) < (minor))
+    {
+      graphCount += speed;
+      line(graphCount, h - (angle * tan(at)), graphCount + speed, h - ((angle + speed) * tan(at)));
+      angle += speed;
+    }//end else
+    else if ((graphCount + speed) >= minor && (graphCount + speed) <= (minor + spikeRange))
+    {
+      graphCount += speed;
+      line(graphCount, h - ((angle + speed) * tan(at)), graphCount + speed, h - (angle * tan(at)));
+      angle -= speed;
+    }
+    
+    //line(x1, (height / 2.0f) - angle1 * tan(TWO_PI/12), x2, (height / 2.0f) -angle2 * tan(TWO_PI/12));
+    if ((graphCount + speed * 2.0f) > widthEnd)
+    {
+      graphCount = width / 2.0f;
       fill(0);
       stroke(0);
       rect(x1, h - diff, widthEnd - x1, diff * 2.0f);
       drawGraph();
+      angle = 0.0f;
       //defaultSetup();
-    }
+    }//end if
+    
   }//end heartRate()
 }//end CLASS Health

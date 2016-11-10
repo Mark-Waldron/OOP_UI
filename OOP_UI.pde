@@ -22,21 +22,22 @@ float count = 0;
 int change = 0;
 
 //Global variable for the speed of the heart rate monitor
-float graphCount = 0.0f;
-
+float graphCount;
 /*
   Initalises program and is called once throughout runtime
 */
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
   smooth();
   defaultSetup();
+  
+  graphCount = (width / 2.0f);
 }//end setup
 
 /*
@@ -62,7 +63,7 @@ void draw()
         change++;//Ensures that graph is drawn once
       }//end if
       upperMenu.mainOptions();//Menu rendering
-      vitals.heartRate(width / 2);//Heart rate render
+      vitals.heartRate(width / 2.0f);//Heart rate render
       break;
     }//end HEALTH case
     case 2:
