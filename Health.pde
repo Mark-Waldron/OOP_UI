@@ -1,4 +1,3 @@
-float angle = 0.0f;
 class Health
 {
   /*
@@ -32,7 +31,9 @@ class Health
   /*
     Draws line that will act as a heart rate monitor
   */
-  
+  float angle = 0.0f;
+  float angle2 = 0.0f;
+  float BPM = (random(60, 120.0f));
   void heartRate(float x1)
   {
     float widthEnd = map(592.5f, 0, finalx, 0, width);
@@ -41,51 +42,23 @@ class Health
     float diff = row * 5.0f;
     float speed = map(1.0f, 0, finalx, 0, width);
     float minor = map(finalx / 6.0f, 0, finalx, x1, widthEnd);
-    float spikeRange = map(10.0f, 0, finalx, 0, width);
+    float spikeRange = map(finalx / 4.0f, 0, finalx,  x1, widthEnd);
     //float heightRange = map(150.0f, 0, 150.0f, h, h - diff);
-    float angleHeight = map(30.0f, 0, 150.0f, h, h - diff);
+    float angleHeight = map(BPM, 0, 150.0f, h, h + diff);
     
-    float at = atan(angleHeight/(minor));
+    float at = atan(angleHeight/(spikeRange - minor));
     
     stroke(#006600);
     strokeWeight(1.0f);
     
-    line(minor, 0, minor, height);
-    line(minor - spikeRange, 0, minor - spikeRange, height);
-    line(minor + spikeRange, 0, minor + spikeRange, height);
-    
     line(0, angleHeight, width, angleHeight);
     
     //strokeWeight(2.0f);
+    graphCount += speed;
     
-    if ((graphCount + speed) < (minor - spikeRange) || (graphCount + speed) > (minor + spikeRange))
-    {
-      graphCount += speed;
-      line (graphCount, h, graphCount + speed, h);
-    }///end if
-    else if ((graphCount + speed) >= (minor - spikeRange) && (graphCount + speed) < (minor))
-    {
-      graphCount += speed;
-      line(graphCount, h - (angle * tan(at)), graphCount + speed, h - ((angle + speed) * tan(at)));
-      angle += speed;
-    }//end else
-    else if ((graphCount + speed) >= minor && (graphCount + speed) <= (minor + spikeRange))
-    {
-      graphCount += speed;
-      line(graphCount, h - ((angle + speed) * tan(at)), graphCount + speed, h - (angle * tan(at)));
-      angle -= speed;
-    }
-    
-    //line(x1, (height / 2.0f) - angle1 * tan(TWO_PI/12), x2, (height / 2.0f) -angle2 * tan(TWO_PI/12));
     if ((graphCount + speed * 2.0f) > widthEnd)
     {
-      graphCount = width / 2.0f;
-      fill(0);
-      stroke(0);
-      rect(x1, h - diff, widthEnd - x1, diff * 2.0f);
-      drawGraph();
-      angle = 0.0f;
-      //defaultSetup();
+      graphCount = widthHalf;
     }//end if
     
   }//end heartRate()

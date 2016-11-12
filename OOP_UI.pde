@@ -14,6 +14,7 @@ PFont mono;
 //Inital width and heights to be used for map()
 float finalx = 750;
 float finaly = 500;
+float widthHalf = 0;
 
 //Global variables that alter the menu
 float keyCount = 1.0;
@@ -29,15 +30,16 @@ float graphCount;
 
 void setup()
 {
-  size(750, 500);
-  //fullScreen();
+  //size(750, 500);
+  fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
   smooth();
   defaultSetup();
   
-  graphCount = (width / 2.0f);
+  widthHalf = map(finalx / 2.0f, 0, finalx, 0, width);
+  graphCount = widthHalf + 0.0f;
 }//end setup
 
 /*
@@ -63,7 +65,7 @@ void draw()
         change++;//Ensures that graph is drawn once
       }//end if
       upperMenu.mainOptions();//Menu rendering
-      vitals.heartRate(width / 2.0f);//Heart rate render
+      vitals.heartRate(widthHalf);//Heart rate render
       break;
     }//end HEALTH case
     case 2:
