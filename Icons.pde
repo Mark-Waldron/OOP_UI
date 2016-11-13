@@ -18,9 +18,8 @@ class Icons
     
     radio.vertex(sLength, sLength);
     radio.vertex(0, sLength);
-    radio.scale(.5);
+    radio.scale(.3);
     radio.endShape(CLOSE);
-    
   }//end radio()
   
   void Health()

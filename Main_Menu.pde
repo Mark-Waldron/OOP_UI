@@ -59,7 +59,7 @@ class Main_Menu
       
       textSize(map(text_sizes[i], 0, finalx, 0, width));
       text(choices[i], x2, y);
-      //text(str, x, y1, x2, y2)
+      //shape(radio, x2, y);
     }//end for
   }//end void
 }//end CLASS Menu
