@@ -13,6 +13,9 @@ Icons menuImages = new Icons();
 Radio music = new Radio();
 
 ArrayList<soundFiles> songList = new ArrayList<soundFiles>();
+ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
+SoundFile list[] = new SoundFile[5];
+
 
 //Global font variable
 PFont mono;
@@ -147,6 +150,9 @@ void loadSongs()
   {
     soundFiles rowFetch = new soundFiles(songTable.getRow(i));
     songList.add(rowFetch);
+    println(songList.get(i).file);
+    SoundFile x = new SoundFile(this, songList.get(i).file);
+    playlist.add(x);
+    //playlist.get(i).play();
   }//end for
-  
 }//end loadSongs
