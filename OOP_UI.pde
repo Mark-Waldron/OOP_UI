@@ -12,6 +12,8 @@ DateTime calendar = new DateTime();
 Icons menuImages = new Icons();
 Radio music = new Radio();
 
+ArrayList<soundFiles> songList = new ArrayList<soundFiles>();
+
 //Global font variable
 PFont mono;
 
@@ -24,7 +26,7 @@ float jfkWidth;
 float jfkHeight;
 
 //Sound
-SoundFile songs[];
+Table songTable;
 
 //Inital width and heights to be used for map()
 float finalx = 750;
@@ -60,12 +62,16 @@ void setup()
   textFont(mono);
   smooth();
   
+  //Calculations for the heart rate monior
+  widthHalf = map(finalx / 2.0f, 0, finalx, 0, width);
+  graphCount = widthHalf + 0.0f;
+  
+  //Loading of sound files
+  loadSongs();
+  
   menuImages.radio();
   println(width + " " + height);
   defaultSetup();
-  
-  widthHalf = map(finalx / 2.0f, 0, finalx, 0, width);
-  graphCount = widthHalf + 0.0f;
 }//end setup
 
 /*
@@ -135,5 +141,12 @@ void defaultSetup()
 
 void loadSongs()
 {
+  songTable = loadTable("songs.csv", "csv");
+  
+  for (int i = 0; i < songTable.getRowCount(); i++)
+  {
+    soundFiles rowFetch = new soundFiles(songTable.getRow(i));
+    songList.add(rowFetch);
+  }//end for
   
 }//end loadSongs
