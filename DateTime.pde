@@ -95,7 +95,7 @@ class DateTime
     text("0", width * .8775f, map(77.0f, 0, finaly, 0, height));
     
     //Call to display temperatue of ship
-    temperature();
+    //temperature();
   }//end date()
   
   void temperature()
