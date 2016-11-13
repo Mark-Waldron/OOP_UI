@@ -11,13 +11,16 @@ DateTime calendar = new DateTime();
 //Global font variable
 PFont mono;
 
+//Shapes
+PShape radio;
+
 //Inital width and heights to be used for map()
 float finalx = 750;
 float finaly = 500;
 float widthHalf = 0;
 
 //Global variables that alter the menu
-float keyCount = 1.0;
+float keyCount = 2.0;
 float keyEntered = keyCount;
 float count = 0;
 int change = 0;
