@@ -51,7 +51,7 @@ class Health
     stroke(#006600);
     strokeWeight(1.0f);
     
-    line(0, angleHeight, width, angleHeight);
+    //line(0, angleHeight, width, angleHeight);
     
     //strokeWeight(2.0f);
     graphCount += speed;

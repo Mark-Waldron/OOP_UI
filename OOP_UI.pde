@@ -1,3 +1,5 @@
+import processing.sound.*;
+
 /*
   Creation of objects 
 */
@@ -8,6 +10,7 @@ Home homePage = new Home();
 Health vitals = new Health();
 DateTime calendar = new DateTime();
 Icons menuImages = new Icons();
+Radio music = new Radio();
 
 //Global font variable
 PFont mono;
@@ -15,10 +18,19 @@ PFont mono;
 //Shapes
 PShape radio;
 
+PImage jfk;
+float jfkWidth;
+float jfkHeight;
+
+
 //Inital width and heights to be used for map()
 float finalx = 750;
 float finaly = 500;
 float widthHalf = 0;
+
+float myWidth = 1366.0f;
+float myHeight = 768.0f;
+
 
 //Global variables that alter the menu
 float keyCount = 2.0;
@@ -34,15 +46,19 @@ float graphCount;
 
 void setup()
 {
-  size(750, 500);
-  //fullScreen();
+  //size(750, 500);
+  fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
+  
+  jfk = loadImage("JFK_white.png");
+  jfkWidth = map(jfk.width, 0, myWidth, 0, width);
+  jfkHeight = map(jfk.height, 0, myHeight, 0, height);
   textFont(mono);
   smooth();
   
   menuImages.radio();
-  
+  println(width + " " + height);
   defaultSetup();
   
   widthHalf = map(finalx / 2.0f, 0, finalx, 0, width);
@@ -63,6 +79,14 @@ void draw()
   switch((int)keyEntered)
   {
     //Health
+    case 0:
+    {
+      defaultSetup();//Default setup call
+      upperMenu.mainOptions();//Menu rendering
+      music.test();
+      change = 0;
+      break;
+    }//end case 0
     case 1:
     {
       if (change == 0)

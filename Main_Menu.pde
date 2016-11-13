@@ -16,6 +16,7 @@ class Main_Menu
     float menu_div = ((width * 0.58f + divide * 2.0f) - (width * 0.42f - divide * 2.0f)) / 5;
     float reset = (width * 0.58f + divide * 2.0f) - (width * 0.42f - divide * 2.0f) - map(1.5f, 0, finalx, 0, width);
     float gap = (width * 0.42f - divide * 2.0f);
+    float y = (h + diff) - map(7, 0, finaly, 0, height);
     
     //Setup to draw menu background
     textFont(mono);
@@ -45,7 +46,6 @@ class Main_Menu
     {
       float x1 = gap + menu_div * (float)i;
       float x2 = x1 + menu_div / 2.0f;
-      float y = (h + diff) - map(7, 0, finaly, 0, height);
       
       //Changes the font colour of text if hovered
       if (i == keyCount)
