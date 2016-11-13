@@ -1,0 +1,4 @@
+class soundFiles
+{
+  SoundFile name;
+}

@@ -18,10 +18,13 @@ PFont mono;
 //Shapes
 PShape radio;
 
+//Images
 PImage jfk;
 float jfkWidth;
 float jfkHeight;
 
+//Sound
+SoundFile songs[];
 
 //Inital width and heights to be used for map()
 float finalx = 750;
@@ -129,3 +132,8 @@ void defaultSetup()
   frame.hudOutline();//Frame draw method
   calendar.clock();//Clock display method
 }//end defaultSetup()
+
+void loadSongs()
+{
+  
+}//end loadSongs
