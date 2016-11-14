@@ -12,9 +12,8 @@ DateTime calendar = new DateTime();
 Icons menuImages = new Icons();
 Radio music = new Radio();
 
-ArrayList<soundFiles> songList = new ArrayList<soundFiles>();
+
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
-SoundFile list[] = new SoundFile[5];
 
 
 //Global font variable
@@ -144,15 +143,8 @@ void defaultSetup()
 
 void loadSongs()
 {
-  songTable = loadTable("songs.csv", "csv");
-  
-  for (int i = 0; i < songTable.getRowCount(); i++)
-  {
-    soundFiles rowFetch = new soundFiles(songTable.getRow(i));
-    songList.add(rowFetch);
-    println(songList.get(i).file);
-    SoundFile x = new SoundFile(this, songList.get(i).file);
-    playlist.add(x);
+    playlist.add(new SoundFile(this, "HoudDog"));
+    playlist.add(new SoundFile(this, "InkSpots"));
+    playlist.add(new SoundFile(this, "Care"));
     //playlist.get(i).play();
-  }//end for
 }//end loadSongs
