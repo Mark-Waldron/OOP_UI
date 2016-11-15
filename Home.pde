@@ -10,7 +10,7 @@ class Home
     
     noStroke();
     fill(0);
-    strokeWeight(2.0f);
+    strokeWeight(lineSize);
     
     ellipse(width * .85, height * .75f, diameter, diameter);
     

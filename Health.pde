@@ -11,7 +11,7 @@ class Health
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
     
     stroke(0, 61.0f, 0);
-    strokeWeight(1.0f);
+    strokeWeight(lineSize / 2);
     
     //fill(0);
     //rect(width / 2.0f, h - (ten * 5.0f), widthEnd - width / 2.0f, (ten * 10.0f));

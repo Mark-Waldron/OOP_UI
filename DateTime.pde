@@ -9,7 +9,7 @@ class DateTime
     int hour;
     int min;
     
-    float size = map(40, 0, finaly, 0, height);
+    float size = map(40, 0, finalx + finaly, 0, width + height);
     float x;
     float y = map(62, 0, finaly, 0, height);
     
@@ -17,7 +17,7 @@ class DateTime
     textSize(size);
     fill(#006600);
     
-    strokeWeight(2.0f);
+    strokeWeight(lineSize);
     stroke(#006600);
     
     //Gets system minute and hour

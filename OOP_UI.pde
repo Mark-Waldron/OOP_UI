@@ -12,9 +12,8 @@ DateTime calendar = new DateTime();
 Icons menuImages = new Icons();
 Radio music = new Radio();
 
-
+//Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
-
 
 //Global font variable
 PFont mono;
@@ -27,42 +26,47 @@ PImage jfk;
 float jfkWidth;
 float jfkHeight;
 
-//Sound
-Table songTable;
-
 //Inital width and heights to be used for map()
 float finalx = 750;
 float finaly = 500;
-float widthHalf = 0;
+float widthHalf;
 
 float myWidth = 1366.0f;
 float myHeight = 768.0f;
 
+float lineSize = 2.0f;
 
 //Global variables that alter the menu
-float keyCount = 2.0;
+float keyCount = 0.0;
 float keyEntered = keyCount;
 float count = 0;
 int change = 0;
 
+//Radio Menu
+float radioToggle = 0;
+
 //Global variable for the speed of the heart rate monitor
 float graphCount;
+
 /*
   Initalises program and is called once throughout runtime
 */
 
+//122
+
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
+  textFont(mono);
+  smooth();
+  //noCursor();
   
   jfk = loadImage("JFK_white.png");
   jfkWidth = map(jfk.width, 0, myWidth, 0, width);
   jfkHeight = map(jfk.height, 0, myHeight, 0, height);
-  textFont(mono);
-  smooth();
   
   //Calculations for the heart rate monior
   widthHalf = map(finalx / 2.0f, 0, finalx, 0, width);
@@ -72,7 +76,6 @@ void setup()
   loadSongs();
   
   menuImages.radio();
-  println(width + " " + height);
   defaultSetup();
 }//end setup
 
@@ -84,7 +87,6 @@ void draw()
 {
   //Default removal of fill and the cursor
   noFill();
-  noCursor();
   
   //Swtich statement to change menu options
   switch((int)keyEntered)
@@ -125,6 +127,8 @@ void draw()
       change = 0;//Heart Rate check
     }//end default
   }//end if
+  
+  println(mouseX + " " + mouseY);
 }//end draw
 
 /*
@@ -141,10 +145,16 @@ void defaultSetup()
   calendar.clock();//Clock display method
 }//end defaultSetup()
 
+/*
+  Loads mp3 files into a arraylist
+*/
+
 void loadSongs()
 {
-    playlist.add(new SoundFile(this, "HoudDog"));
-    playlist.add(new SoundFile(this, "InkSpots"));
-    playlist.add(new SoundFile(this, "Care"));
-    //playlist.get(i).play();
+    playlist.add(new SoundFile(this, "HoundDog.mp3"));
+    playlist.add(new SoundFile(this, "Fire.mp3"));
+    playlist.add(new SoundFile(this, "Care.mp3"));
+    playlist.add(new SoundFile(this, "Gypsy.mp3"));
+    
+    //playlist.get(1).play();
 }//end loadSongs

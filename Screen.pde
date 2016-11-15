@@ -16,7 +16,7 @@ class Screen
     fill(0);
     rect(rectx, recty, rectw, recth);//702 448
     
-    strokeWeight(2);
+    strokeWeight(lineSize);
     stroke(#006600);
     
     //Top + bottom arc

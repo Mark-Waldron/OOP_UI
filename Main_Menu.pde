@@ -8,7 +8,7 @@ class Main_Menu
   void mainOptions()
   {
     //Method declarations
-    String choices[] = {"JACK", "HEAL", "HOME", "SHIP","LOGS"};
+    String choices[] = {"JACK", "HEAL", "HOME", "SHIP","DATA"};
     float text_sizes[] = {30.0f, 30.0f, 30.0f, 30.0f, 30.0f};
     float divide = (width * 0.42f + ((width / 15.0f) - map(50, 0, finalx, 0, width))) / 4.0f;
     float diff = map(35, 0, finaly, 0, height);
