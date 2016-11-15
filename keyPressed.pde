@@ -29,18 +29,17 @@ void keyPressed()
   {
     radioToggle += 1.0f;
   }//end if
+  if (keyCode == UP && keyEntered == 0.0f && radioToggle == 4.0f)
+  {
+    radioToggle = 0.0f;
+  }//end if
+  if (keyCode == DOWN && keyEntered == 0.0f && radioToggle == 0.0f)
+  {
+    radioToggle = 4.0f;
+  }//end if
   if (keyCode == DOWN && keyEntered == 0.0f)
   {
     radioToggle -= 1.0f;
-  }//end if
-  
-  if (keyCode == DOWN && keyEntered == 0.0f && radioToggle == 0.0f)
-  {
-    radioToggle = 3.0f;
-  }//end if
-  if (keyCode == UP && keyEntered == 0.0f && radioToggle == 3.0f)
-  {
-    radioToggle = 0.0f;
   }//end if
   
   

@@ -129,7 +129,7 @@ void draw()
     }//end default
   }//end if
   
-  println(mouseX + " " + mouseY);
+  println(radioToggle);
 }//end draw
 
 /*
