@@ -14,6 +14,7 @@ Radio music = new Radio();
 
 //Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
+String files[] = {"HoundDog.mp3", "Fire.mp3", "Care.mp3", "Gypsy.mp3"};
 
 //Global font variable
 PFont mono;
@@ -151,10 +152,9 @@ void defaultSetup()
 
 void loadSongs()
 {
-    playlist.add(new SoundFile(this, "HoundDog.mp3"));
-    playlist.add(new SoundFile(this, "Fire.mp3"));
-    playlist.add(new SoundFile(this, "Care.mp3"));
-    playlist.add(new SoundFile(this, "Gypsy.mp3"));
-    
+    for(int i = 0; i < files.length; i++)
+    {
+      playlist.add(new SoundFile(this, files[i]));
+    }
     //playlist.get(1).play();
 }//end loadSongs
