@@ -25,17 +25,32 @@ class Radio
     stroke(#006600);
     strokeWeight(lineSize);
     fill(0);
-    line(alter, (heightDiv - panelDiff) - (gap * 4.0f), alter, (heightDiv - panelDiff));
-    line(w1, heightDiv, w2, heightDiv);
-    line(widthDiv, (heightDiv - panelDiff), widthDiv, (heightDiv - panelDiff) - (gap * 4.0f));
+    //line(alter, (heightDiv - panelDiff) - (gap * 4.0f), alter, (heightDiv - panelDiff));
+    //line(w1, heightDiv, w2, heightDiv);
+    //line(widthDiv, (heightDiv - panelDiff), widthDiv, (heightDiv - panelDiff) - (gap * 4.0f));
     
+    noStroke();
     for (float i = 1; i < 5.0f; i+=1.0f)
     {
-      fill(0);
-      rect(alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
-      fill(#006600);
-      textAlign(LEFT, CENTER);
-      text("ergsdgrfsdf", alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
+      String song = files[((int)i - 1)].substring(0, files[((int)i - 1)].length() - 4);
+      
+      if (radioToggle == (i - 1))
+      {
+        fill(#006600);
+        rect(alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
+        fill(0);
+        textAlign(LEFT, CENTER);
+        text(song, alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
+      }//end if
+      else
+      {
+        fill(0);
+        rect(alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
+        fill(#006600);
+        textAlign(LEFT, CENTER);
+        text(song, alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
+      }//end else
+      //stroke(#006600);
       //line(alter, (heightDiv - panelDiff) - (gap * i), widthHalf, (heightDiv - panelDiff) - (gap * i));
     }//end for
   }//end test

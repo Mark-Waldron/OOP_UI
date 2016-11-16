@@ -44,7 +44,7 @@ float count = 0;
 int change = 0;
 
 //Radio Menu
-float radioToggle = 0;
+float radioToggle = 3.0f;
 
 //Global variable for the speed of the heart rate monitor
 float graphCount;

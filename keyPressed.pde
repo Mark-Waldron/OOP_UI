@@ -42,5 +42,22 @@ void keyPressed()
     radioToggle -= 1.0f;
   }//end if
   
+  if ((key == 'p' || key == 'P') && keyEntered == 0.0f)
+  {
+    for (int i = 0; i < playlist.size(); i++)
+    {
+      playlist.get(i).stop();
+    }//end if
+    
+    playlist.get((int)radioToggle).play();
+  }//end if
+  
+  if (key == 's' || key == 'S')
+  {
+    for (int i = 0; i < playlist.size(); i++)
+    {
+      playlist.get(i).stop();
+    }//end if
+  }//end if
   
 }//end keyPressed
