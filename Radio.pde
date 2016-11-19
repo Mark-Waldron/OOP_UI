@@ -2,17 +2,30 @@ class Radio
 {
   float jfk_X;
   float jfk_Y;
+  
   float w1;
   float w2;
   float widthDiv;
+  
   float h1;
   float h2;
   float heightDiv;
+  
   float alter;
+  
   float panelDiff;
   float gap;
   float tSize;
+  
   float graphHeight;
+  float graphWidth;
+  
+  float graphHeightDiv;
+  
+  float period;
+  
+  float dx;
+  float sinY[];
   
   /*
     A method that will display a menu with options as to what song a user would like to play
@@ -33,7 +46,12 @@ class Radio
     this.gap = map(30, 0, finaly, 0, height);
     this.tSize = map(25.0f, 0, finalx + finaly, 0, width + height);
     this.graphHeight = map(100, 0, finaly, 0, height);
-
+    this.graphHeightDiv = (heightDiv + panelDiff) + (graphHeight / 2.0f);
+    this.graphWidth = (widthDiv - alter);
+    this.period = map(finalx / 4.0f, 0, finalx, alter, widthDiv);
+    this.dx = (TWO_PI / period);
+    this.sinY = new float[(int)graphWidth];
+    
     //Border for JFK frame
     float border_x = map(15.0f, 0, finalx, 0, width);
     float border_y = map(15.0f, 0, finaly, 0, height);
@@ -86,9 +104,29 @@ class Radio
     noFill();
     stroke(#006600);
 
-    float y = map(finaly / 2.0f, 0, finaly, (heightDiv + panelDiff), (heightDiv + panelDiff) + 100);
-    line(alter, (heightDiv + panelDiff) + (graphHeight / 2.0f), widthDiv, (heightDiv + panelDiff) + (graphHeight / 2.0f));
+    //line(alter, graphHeightDiv, widthDiv, graphHeightDiv);
     rect(alter, (heightDiv + panelDiff), widthDiv - alter, graphHeight);
     
+    sinWave();
   }//end test
+  
+  void sinWave()
+  {
+    float amplitude = map(random(0, finaly), 0, finaly, 0, graphHeightDiv - (heightDiv + panelDiff));
+    // For every x value, calculate a y value with sine function
+    float x = theta;
+    
+    for (int i = 0; i < sinY.length; i++)
+    {
+      sinY[i] = sin(x)*amplitude;
+      x += dx;
+      point(alter + i + 1.0f, graphHeightDiv + sinY[i]);
+    }//end for
+    
+    theta += 0.02;
+    if (theta > 360)
+    {
+      theta = 0.0f;
+    }
+  }//end sinWave
 }//end RADIO CLASS
