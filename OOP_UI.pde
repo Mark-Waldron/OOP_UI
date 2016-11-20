@@ -11,6 +11,7 @@ Health vitals = new Health();
 DateTime calendar = new DateTime();
 Icons menuImages = new Icons();
 Radio music = new Radio();
+Ship struct = new Ship();
 
 //Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
@@ -38,7 +39,7 @@ float myHeight = 768.0f;
 float lineSize = 2.0f;
 
 //Global variables that alter the menu
-float keyCount = 0.0;
+float keyCount = 3.0;
 float keyEntered = keyCount;
 float count = 0;
 int change = 0;
@@ -46,6 +47,8 @@ int change = 0;
 //Radio Menu
 float radioToggle = 3.0f;
 float theta = 0.0f;
+
+boolean play = false;
 
 //Global variable for the speed of the heart rate monitor
 float graphCount;
@@ -122,6 +125,19 @@ void draw()
       change = 0;//Heart Rate check
       break;
     }//end HOME case
+    case 3:
+    {
+      defaultSetup();//Default setup call
+      upperMenu.mainOptions();//Menu rendering
+      struct.statusSetup();
+      break;
+    }//end case 3
+    case 4:
+    {
+      defaultSetup();//Default setup call
+      upperMenu.mainOptions();//Menu rendering
+      break;
+    }
     default:
     {
       defaultSetup();//Default setup call

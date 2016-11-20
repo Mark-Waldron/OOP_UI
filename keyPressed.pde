@@ -50,6 +50,8 @@ void keyPressed()
     }//end if
     
     playlist.get((int)radioToggle).play();
+    play = true;
+    theta = 0.0f;
   }//end if
   
   if (key == 's' || key == 'S')
@@ -57,7 +59,8 @@ void keyPressed()
     for (int i = 0; i < playlist.size(); i++)
     {
       playlist.get(i).stop();
-    }//end if
+    }//end for
+    play = false;
   }//end if
   
 }//end keyPressed

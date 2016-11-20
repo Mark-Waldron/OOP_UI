@@ -106,8 +106,10 @@ class Radio
 
     //line(alter, graphHeightDiv, widthDiv, graphHeightDiv);
     rect(alter, (heightDiv + panelDiff), widthDiv - alter, graphHeight);
-    
-    sinWave();
+    if (play == true)
+    {
+      sinWave();
+    }//end if
   }//end test
   
   void sinWave()
