@@ -37,7 +37,7 @@ class Main_Menu
     }//end for
     */
     
-    fill(#006600);
+    fill(green);
     
     rect(gap + map(1, 0, finalx, 0, width) + menu_div * keyCount, h + map(1.4f, 0, finaly, 0, height), menu_div - map(1.9f, 0, finalx, 0, width), diff - map(1.5f, 0, finaly, 0, height));
     
@@ -54,7 +54,7 @@ class Main_Menu
       }
       else
       {
-        fill(#006600);
+        fill(green);
       }//end if
       
       textSize(map(text_sizes[i], 0, finalx, 0, width));

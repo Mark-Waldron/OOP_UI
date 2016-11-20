@@ -15,11 +15,11 @@ class Outline
     float diff = map(35, 0, finaly, 0, height);
     float h = height * 0.14 + map(7.0f, 0, finaly, 0, height);
     
-    stroke(#006600);
+    stroke(green);
     strokeWeight(lineSize);
     fill(0);
     
-    stroke(#006600);
+    stroke(green);
     
     //Bottom line clock
     line (width * 0.42f, height * 0.14, width * 0.58f, height * 0.14);

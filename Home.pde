@@ -16,12 +16,12 @@ class Home
     
     diameter -= 10.0f;
     
-    stroke(#006600);
+    stroke(green);
     ellipse(width * .85, height * .75f, diameter, diameter);
     
     //Radar draw
     noStroke();
-    fill(#006600);
+    fill(green);
     arc(width * .85, height * .75f, diameter, diameter, (TWO_PI / 360.0f) * count, (TWO_PI / 360.0f) * count + PI / 4.0f);
     count++;
     

@@ -15,10 +15,10 @@ class DateTime
     
     textAlign(CENTER);
     textSize(size);
-    fill(#006600);
+    fill(green);
     
     strokeWeight(lineSize);
-    stroke(#006600);
+    stroke(green);
     
     //Gets system minute and hour
     hour = hour();

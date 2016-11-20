@@ -23,6 +23,9 @@ PFont mono;
 //Shapes
 PShape radio;
 
+//Colour
+color green = #006600;
+
 //Images
 PImage jfk;
 float jfkWidth;
@@ -53,6 +56,11 @@ boolean play = false;
 //Global variable for the speed of the heart rate monitor
 float graphCount;
 
+//Ship
+float reactorR1 = 0.0f;
+float reactorR2 = TWO_PI;
+float reactorR3 = 0.0f;
+
 /*
   Initalises program and is called once throughout runtime
 */
@@ -61,8 +69,8 @@ float graphCount;
 
 void setup()
 {
-  size(750, 500);
-  //fullScreen();
+  //size(750, 500);
+  fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);

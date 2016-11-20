@@ -60,7 +60,7 @@ class Radio
     tint(#006600);
     image(jfk, jfk_X, jfk_Y, jfkWidth / 2.0f, jfkHeight / 2.0f);
 
-    stroke(#006600);
+    stroke(green);
     noFill();
 
     line(jfk_X - border_x, jfk_Y - border_y, jfk_X - border_x, jfk_Y + (jfkHeight / 2.0f));
@@ -69,7 +69,7 @@ class Radio
     line(jfk_X + (jfkWidth / 2.0f), jfk_Y - border_y, jfk_X + (jfkWidth / 2.0f), jfk_Y + (jfkHeight / 2.0f));
 
     textSize(tSize);
-    stroke(#006600);
+    stroke(green);
     strokeWeight(lineSize);
     fill(0);
     //line(alter, (heightDiv - panelDiff) - (gap * 4.0f), alter, (heightDiv - panelDiff));
@@ -83,7 +83,7 @@ class Radio
 
       if (radioToggle == (i - 1))
       {
-        fill(#006600);
+        fill(green);
         rect(alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
         fill(0);
         textAlign(LEFT, CENTER);
@@ -93,7 +93,7 @@ class Radio
       {
         fill(0);
         rect(alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
-        fill(#006600);
+        fill(green);
         textAlign(LEFT, CENTER);
         text(song, alter, (heightDiv - panelDiff) - (gap * i), widthDiv - alter, gap);
       }//end else
@@ -102,7 +102,7 @@ class Radio
     }//end fr
     
     noFill();
-    stroke(#006600);
+    stroke(green);
 
     //line(alter, graphHeightDiv, widthDiv, graphHeightDiv);
     rect(alter, (heightDiv + panelDiff), widthDiv - alter, graphHeight);

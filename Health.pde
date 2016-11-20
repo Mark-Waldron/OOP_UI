@@ -48,7 +48,7 @@ class Health
     
     float at = atan(angleHeight/(spikeRange - minor));
     
-    stroke(#006600);
+    stroke(green);
     strokeWeight(1.0f);
     
     //line(0, angleHeight, width, angleHeight);

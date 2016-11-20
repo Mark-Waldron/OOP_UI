@@ -17,7 +17,7 @@ class Screen
     rect(rectx, recty, rectw, recth);//702 448
     
     strokeWeight(lineSize);
-    stroke(#006600);
+    stroke(green);
     
     //Top + bottom arc
     arc(width / 2.0f, height * 0.13, topx, topy, (PI / 180.0f) * 200.5f, (TWO_PI / 360.0f) * 339.5f);
