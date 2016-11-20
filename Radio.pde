@@ -27,6 +27,9 @@ class Radio
   float dx;
   float sinY[];
   
+  float amplitude;
+  float x;
+  
   /*
     A method that will display a menu with options as to what song a user would like to play
   */
@@ -114,21 +117,24 @@ class Radio
   
   void sinWave()
   {
-    float amplitude = map(random(0, finaly), 0, finaly, 0, graphHeightDiv - (heightDiv + panelDiff));
-    // For every x value, calculate a y value with sine function
-    float x = theta;
-    
-    for (int i = 0; i < sinY.length; i++)
+    if (frameCount % 30 == 0)
     {
-      sinY[i] = sin(x)*amplitude;
-      x += dx;
-      point(alter + i + 1.0f, graphHeightDiv + sinY[i]);
-    }//end for
-    
-    theta += 0.02;
-    if (theta > 360)
-    {
-      theta = 0.0f;
-    }
+      this.amplitude = map(random(finaly/4.0f, finaly), 0, finaly, 0, graphHeightDiv - (heightDiv + panelDiff));
+      // For every x value, calculate a y value with sine function
+      this.x = theta;
+    }//end if
+      
+      for (int i = 0; i < sinY.length; i++)
+      {
+        sinY[i] = sin(x)*amplitude;
+        x += dx;
+        point(alter + i + 1.0f, graphHeightDiv + sinY[i]);
+      }//end for
+      
+      theta += 0.02;
+      if (theta > 360)
+      {
+        theta = 0.0f;
+      }
   }//end sinWave
 }//end RADIO CLASS

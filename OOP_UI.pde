@@ -65,8 +65,6 @@ float reactorR3 = 0.0f;
   Initalises program and is called once throughout runtime
 */
 
-//122
-
 void setup()
 {
   size(750, 500);
@@ -139,12 +137,14 @@ void draw()
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
       struct.reactor();
+      change = 0;//Heart Rate check
       break;
     }//end case 3
     case 4:
     {
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
+      change = 0;//Heart Rate check
       break;
     }
     default:

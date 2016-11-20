@@ -71,17 +71,46 @@ class Ship
   
   void barChart()
   {
+    float engine = map(100.0f, 0, finaly, 0, height);
+    float shields = map(map(10, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    float ox = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    float fuel = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    float rectLength = map(50.0f, 0, finalx, 0, width);
+    float rectHeight = map(125.0f, 0, finaly, 0, height);
+    float leftX = w1 + map(45.0f, 0, finalx, 0, width);
+    float bottomY = heightDiv + map(20.0f, 0, finaly, 0, height);
+    float rightX = w2 - map(45.0f, 0, finalx, 0, width) - rectLength;
+    float topY = heightDiv - map(20.0f, 0, finaly, 0, height) - rectHeight;
+    
+    textAlign(LEFT, CENTER);
     strokeWeight(2.0);
     stroke(green);
     fill(0);
-    rect(w1 + 75, heightDiv + 20, 50, 125);
-    rect(w2 - 75 - 50, heightDiv + 20, 50, 125);
+    textSize(map(22.0f, 0, finalx + finaly, 0, width + height));
     
-    rect(w1 + 75, heightDiv - 20 - 125, 50, 125);
-    rect(w2 - 75 - 50, heightDiv - 20 - 125, 50, 125);
+    //Bottom
+    rect(leftX, bottomY, rectLength, rectHeight);
+    rect(rightX, bottomY, rectLength, rectHeight);
+    
+    //Top
+    rect(leftX, topY, rectLength, rectHeight);
+    rect(rightX, topY, rectLength, rectHeight);
     
     noStroke();
     fill(green);
-    rect(w1 + 75, heightDiv + 20, 50, 125);
-  }
+    
+    textAlign(LEFT, CENTER);
+    rect(leftX, topY + (rectHeight - engine), rectLength, rectHeight - (rectHeight - engine));
+    text("-ENGINE", leftX + rectLength, topY + (rectHeight - engine));
+    
+    rect(leftX, bottomY + (rectHeight - ox), rectLength, rectHeight - (rectHeight - ox));
+    text("-OXYGEN", leftX + rectLength, bottomY + (rectHeight - ox));
+    
+    textAlign(RIGHT, CENTER);
+    rect(rightX, topY + (rectHeight - shields), rectLength, rectHeight - (rectHeight - shields));
+    text("SHIELDS-", rightX, topY + (rectHeight - shields));
+    
+    rect(rightX, bottomY + (rectHeight - fuel), rectLength, rectHeight - (rectHeight - fuel));
+    text("FUEL-", rightX, bottomY + (rectHeight - fuel));
+  }//end barChart()
 }//end CLASS Ship
