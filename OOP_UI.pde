@@ -69,8 +69,8 @@ float reactorR3 = 0.0f;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
@@ -90,6 +90,7 @@ void setup()
   
   menuImages.radio();
   defaultSetup();
+  struct.statusSetup();
 }//end setup
 
 /*
@@ -137,7 +138,7 @@ void draw()
     {
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
-      struct.statusSetup();
+      struct.reactor();
       break;
     }//end case 3
     case 4:
@@ -153,8 +154,6 @@ void draw()
       change = 0;//Heart Rate check
     }//end default
   }//end if
-  
-  println(mouseY);
 }//end draw
 
 /*
