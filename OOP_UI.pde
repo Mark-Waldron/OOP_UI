@@ -24,7 +24,7 @@ PFont mono;
 PShape radio;
 
 //Colour
-color green = #006600;
+color green = #20C20E;
 
 //Images
 PImage jfk;
@@ -42,7 +42,7 @@ float myHeight = 768.0f;
 float lineSize = 2.0f;
 
 //Global variables that alter the menu
-float keyCount = 3.0;
+float keyCount = 2.0;
 float keyEntered = keyCount;
 float count = 0;
 int change = 0;
@@ -129,6 +129,7 @@ void draw()
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
       homePage.radar();//Radar draw
+      
       change = 0;//Heart Rate check
       break;
     }//end HOME case
@@ -144,6 +145,7 @@ void draw()
     {
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
+      
       change = 0;//Heart Rate check
       break;
     }
@@ -151,6 +153,7 @@ void draw()
     {
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu render
+      
       change = 0;//Heart Rate check
     }//end default
   }//end if
@@ -168,6 +171,7 @@ void defaultSetup()
   layout.screenDraw();//Curved Screen draw method
   frame.hudOutline();//Frame draw method
   calendar.clock();//Clock display method
+  graphCount = widthHalf;
 }//end defaultSetup()
 
 /*

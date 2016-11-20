@@ -13,8 +13,8 @@ class Health
     stroke(0, 61.0f, 0);
     strokeWeight(lineSize / 2);
     
-    //fill(0);
-    //rect(width / 2.0f, h - (ten * 5.0f), widthEnd - width / 2.0f, (ten * 10.0f));
+    fill(0);
+    rect(width / 2.0f, h - (ten * 5.0f), widthEnd - width / 2.0f, (ten * 10.0f));
     
     line(width / 2.0f, h, widthEnd, h);
     
@@ -33,7 +33,7 @@ class Health
   */
   float angle = 0.0f;
   float angle2 = 0.0f;
-  float BPM = (random(60, 120.0f));
+  int index = 0;
   void heartRate(float x1)
   {
     float widthEnd = map(592.5f, 0, finalx, 0, width);
@@ -44,21 +44,51 @@ class Health
     float minor = map(finalx / 6.0f, 0, finalx, x1, widthEnd);
     float spikeRange = map(finalx / 4.0f, 0, finalx,  x1, widthEnd);
     //float heightRange = map(150.0f, 0, 150.0f, h, h - diff);
+    float BPM = map(90.0f, 0, finaly, 0, height);
     float angleHeight = map(BPM, 0, 150.0f, h, h + diff);
+    float sinY []= new float [(int)(spikeRange - minor)];
+    float at = atan((angleHeight - h)/(spikeRange - minor));
     
-    float at = atan(angleHeight/(spikeRange - minor));
+    for (float i = 0; i < (int)(spikeRange - minor); i+=1.0f)
+    {
+      sinY[(int)i] = (i * tan(at));
+      println(degrees(at) + "gsdvda");
+    }//end for
     
     stroke(green);
-    strokeWeight(1.0f);
+    strokeWeight(2.0f);
     
-    //line(0, angleHeight, width, angleHeight);
-    
-    //strokeWeight(2.0f);
     graphCount += speed;
     
-    if ((graphCount + speed * 2.0f) > widthEnd)
+    //line(spikeRange, 0, spikeRange, height);
+    line(minor, 0, minor, height);
+    line((spikeRange - minor), 0, (spikeRange - minor), height);
+    //line(0, angleHeight - h, width, angleHeight - h);
+    
+    if (graphCount >= minor && graphCount < spikeRange && index + 1< sinY.length)
+    {
+      line(graphCount, h - sinY[index], graphCount + speed, h - sinY[index + 1]);
+      index++;
+    }//end if
+    else if (graphCount > spikeRange && index - 1 > -1)
+    {
+      line(graphCount, h - sinY[index], graphCount + speed, h - sinY[index - 1]);
+      index--;
+    }
+    else if (graphCount >= spikeRange - speed && graphCount <= spikeRange + speed)
+    {
+      line(graphCount, h - sinY[sinY.length - 1], graphCount + speed, h - sinY[sinY.length - 1]);
+    }//end else
+    else
+    {
+      line(graphCount, h, graphCount + speed, h);
+    }
+    
+    if ((graphCount + speed * 3.0f) > widthEnd)
     {
       graphCount = widthHalf;
+      drawGraph();
+      index = 0;
     }//end if
     
   }//end heartRate()
