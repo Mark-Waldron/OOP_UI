@@ -1,9 +1,13 @@
 class Health
 {
+  ArrayList<Float> coY = new ArrayList<Float>();
+  
+  int index = 0;
+  
   /*
     Method to draw the heart rate monitor's backrgound
   */
-  ArrayList<Float> coY = new ArrayList<Float>();
+  
   void drawGraph()
   {
     float ten = map(15.0f, 0, finaly, 0, height);
@@ -31,9 +35,7 @@ class Health
   /*
     Draws line that will act as a heart rate monitor
   */
-  float angle = 0.0f;
-  float angle2 = 0.0f;
-  int index = 0;
+  
   void heartRate(float x1)
   {
     float widthEnd = map(592.5f, 0, finalx, 0, width);
@@ -42,13 +44,16 @@ class Health
     float diff = row * 5.0f;
     float graphUp = h - diff;
     float speed = 1.0f;
-    float minor = map(finalx / 6.0f, 0, finalx, x1, widthEnd);
-    float spikeRange = map(finalx / 4.0f, 0, finalx,  x1, widthEnd);
+    float minor = map(finalx / 7.0f, 0, finalx, x1, widthEnd);
+    float spikeRange = map(finalx / 5.0f, 0, finalx,  x1, widthEnd);
+    
+    //float primRange = 
+    
     //float heightRange = map(150.0f, 0, 150.0f, h, h - diff);
     float angleHeight = map(60.0f, 0.0f, 150.0f, graphUp, graphUp + diff);
     float at = atan((angleHeight - graphUp)/(spikeRange - minor));
     
-    for (float i = 0; i <= (int)(spikeRange - minor); i += 1.0f)
+    for (float i = 0; i <= (spikeRange - minor) + 1; i += 1.0f)
     {
       coY.add(i * tan(at));
       //println(degrees(at) + "gsdvda");

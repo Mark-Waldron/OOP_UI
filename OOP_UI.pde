@@ -1,3 +1,4 @@
+//Library Imports
 import processing.sound.*;
 
 /*
@@ -67,8 +68,8 @@ float reactorR3 = 0.0f;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
@@ -86,6 +87,7 @@ void setup()
   //Loading of sound files
   loadSongs();
   
+  homePage.setUp();
   menuImages.radio();
   defaultSetup();
   struct.statusSetup();

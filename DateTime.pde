@@ -63,6 +63,9 @@ class DateTime
   {
     int d = day();
     int m = month();
+    int year = year();
+    int oldYear = 2016 - 1972;
+    String currentYear = String.format("%d", (year - oldYear));
     textSize(size);
     
     //Checks that day is less than 10
@@ -89,10 +92,10 @@ class DateTime
     
     //Output to screen of fictional year
     text("/", width * .77f, map(66.50f, 0, finaly, 0, height));
-    text("1", width * .7925f, map(69.0f, 0, finaly, 0, height));
-    text("9", width * .8225f, map(71f, 0, finaly, 0, height));
-    text("7", width * .85f, map(74.0f, 0, finaly, 0, height));
-    text("0", width * .8775f, map(77.0f, 0, finaly, 0, height));
+    text(currentYear.substring(0,1), width * .7925f, map(69.0f, 0, finaly, 0, height));
+    text(currentYear.substring(1,2), width * .8225f, map(71f, 0, finaly, 0, height));
+    text(currentYear.substring(2,3), width * .85f, map(74.0f, 0, finaly, 0, height));
+    text(currentYear.substring(3,4), width * .8775f, map(77.0f, 0, finaly, 0, height));
     
     //Call to display temperatue of ship
     //temperature();
