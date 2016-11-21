@@ -3,7 +3,7 @@ class Health
   /*
     Method to draw the heart rate monitor's backrgound
   */
-  
+  ArrayList<Float> coY = new ArrayList<Float>();
   void drawGraph()
   {
     float ten = map(15.0f, 0, finaly, 0, height);
@@ -40,44 +40,49 @@ class Health
     float h = height / 2.0f + map(22, 0, finaly, 0, height);
     float row = map(15.0f, 0, finaly, 0, height);
     float diff = row * 5.0f;
-    float speed = map(1.0f, 0, finalx, 0, width);
+    float graphUp = h - diff;
+    float speed = 1.0f;
     float minor = map(finalx / 6.0f, 0, finalx, x1, widthEnd);
     float spikeRange = map(finalx / 4.0f, 0, finalx,  x1, widthEnd);
     //float heightRange = map(150.0f, 0, 150.0f, h, h - diff);
-    float BPM = map(90.0f, 0, finaly, 0, height);
-    float angleHeight = map(BPM, 0, 150.0f, h, h + diff);
-    float sinY []= new float [(int)(spikeRange - minor)];
-    float at = atan((angleHeight - h)/(spikeRange - minor));
+    float angleHeight = map(60.0f, 0.0f, 150.0f, graphUp, graphUp + diff);
+    float at = atan((angleHeight - graphUp)/(spikeRange - minor));
     
-    for (float i = 0; i < (int)(spikeRange - minor); i+=1.0f)
+    for (float i = 0; i <= (int)(spikeRange - minor); i += 1.0f)
     {
-      sinY[(int)i] = (i * tan(at));
-      println(degrees(at) + "gsdvda");
+      coY.add(i * tan(at));
+      //println(degrees(at) + "gsdvda");
+      //stroke(green);
+      //line(0, h - sinY[(int)i], width, h - sinY[(int)i]);
     }//end for
     
     stroke(green);
-    strokeWeight(2.0f);
+    strokeWeight(1.0f);
     
     graphCount += speed;
     
     //line(spikeRange, 0, spikeRange, height);
-    line(minor, 0, minor, height);
-    line((spikeRange - minor), 0, (spikeRange - minor), height);
+    //line(minor, 0, minor, height);
+    //line((spikeRange - minor), 0, (spikeRange - minor), height);
     //line(0, angleHeight - h, width, angleHeight - h);
     
-    if (graphCount >= minor && graphCount < spikeRange && index + 1< sinY.length)
+    //line(0, graphUp, width, graphUp);
+    //line(0, graphUp + diff * 2.0f, width, graphUp + diff * 2.0f);
+    
+    
+    if (graphCount >= minor && graphCount < spikeRange && index + 1 < coY.size())
     {
-      line(graphCount, h - sinY[index], graphCount + speed, h - sinY[index + 1]);
+      line(graphCount, h - coY.get(index), graphCount + speed, h - coY.get(index + 1));
       index++;
     }//end if
     else if (graphCount > spikeRange && index - 1 > -1)
     {
-      line(graphCount, h - sinY[index], graphCount + speed, h - sinY[index - 1]);
+      line(graphCount, h - coY.get(index), graphCount + speed, h - coY.get(index - 1));
       index--;
     }
     else if (graphCount >= spikeRange - speed && graphCount <= spikeRange + speed)
     {
-      line(graphCount, h - sinY[sinY.length - 1], graphCount + speed, h - sinY[sinY.length - 1]);
+      line(graphCount, h - coY.get(coY.size() - 1), graphCount + speed, h - (coY.size() - 1));
     }//end else
     else
     {
