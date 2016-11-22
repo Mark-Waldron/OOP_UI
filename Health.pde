@@ -158,7 +158,8 @@ class Health
     fill(green);
     stroke(green);
     textAlign(RIGHT, CENTER);
-    textSize(map(50, 0, finalx, 0, width));
-    text("BPM-" + BPM, widthHalf - map(40, 0, finalx, 0, width), h);
+    textSize(map(70, 0, finaly, 0, height));
+    text("BPM", widthHalf - map(40, 0, finalx, 0, width), h - (diff / 5.0f) * 2.0f);
+    text(BPM, widthHalf - map(40, 0, finalx, 0, width), h + (diff / 5.0f) * 2.0f);
   }//end printBPM
 }//end CLASS Health

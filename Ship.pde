@@ -94,15 +94,24 @@ class Ship
   
   void infoChange()
   {
-    engine = map((100), 0, finaly, 0, height);
-    shields = map(map(10, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    ox = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    fuel = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    float enginePer = 100;;
+    float shieldsPer = 100;
+    float oxPer = 100;
+    float fuelPer = 100;
+    
+    engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    shields = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    fuel = map(map(fuelPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
   }//end infoChan
   
   void barChart()
   { 
-    infoChange();
+    if (frameCount % 10 == 0)
+    {
+      infoChange();
+    }//end barChart()
+    
     textAlign(LEFT, CENTER);
     strokeWeight(2.0);
     stroke(green);
