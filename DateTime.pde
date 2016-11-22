@@ -101,6 +101,7 @@ class DateTime
     //temperature();
   }//end date()
   
+  /*
   void temperature()
   {
     float angle = 354.0f;
@@ -126,4 +127,6 @@ class DateTime
     
     popMatrix();
   }//end temperature()
+  */
+  
 }//end CLASS DateTime

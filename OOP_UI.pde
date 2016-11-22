@@ -1,5 +1,8 @@
 //Library Imports
 import processing.sound.*;
+import java.util.Date;
+
+Date x = new Date( );
 
 /*
   Creation of objects 
@@ -91,6 +94,7 @@ void setup()
   menuImages.radio();
   defaultSetup();
   struct.statusSetup();
+  vitals.setupRate();
 }//end setup
 
 /*
@@ -123,7 +127,7 @@ void draw()
         change++;//Ensures that graph is drawn once
       }//end if
       upperMenu.mainOptions();//Menu rendering
-      vitals.heartRate(widthHalf);//Heart rate render
+      vitals.heartRate();//Heart rate render
       break;
     }//end HEALTH case
     case 2:
@@ -159,6 +163,8 @@ void draw()
       change = 0;//Heart Rate check
     }//end default
   }//end if
+  
+  println((int)frameRate);
 }//end draw
 
 /*

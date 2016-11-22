@@ -6,20 +6,43 @@ class Ship
   float h1;
   float h2;
   float heightDiv;
+  
+  float engine;
+  float shields;
+  float ox;
+  float fuel;
+  float rectLength;
+  float rectHeight;
+  float leftX;
+  float bottomY;
+  float rightX;
+  float topY;
+  
+  float arcSize;
+  float arcDiff;
+  
   void statusSetup()
   {
-    this.w1 = map(24.5f, 0, finalx, 0, width);
-    this.w2 = map(finalx - 24.5f, 0, finalx, 0, width);
-    this.widthDiv = (w1 + w2) / 2.0f;
-    this.h1 = map(122.0f, 0, finaly, 0, height);
-    this.h2 = map(finaly - 25.0f, 0, finaly, 0, height);
-    this.heightDiv = (h1 + h2) / 2.0f;
+    w1 = map(24.5f, 0, finalx, 0, width);
+    w2 = map(finalx - 24.5f, 0, finalx, 0, width);
+    widthDiv = (w1 + w2) / 2.0f;
+    h1 = map(122.0f, 0, finaly, 0, height);
+    h2 = map(finaly - 25.0f, 0, finaly, 0, height);
+    heightDiv = (h1 + h2) / 2.0f;
+    
+    rectLength = map(50.0f, 0, finalx, 0, width);
+    rectHeight = map(125.0f, 0, finaly, 0, height);
+    leftX = w1 + map(45.0f, 0, finalx, 0, width);
+    bottomY = heightDiv + map(20.0f, 0, finaly, 0, height);
+    rightX = w2 - map(45.0f, 0, finalx, 0, width) - rectLength;
+    topY = heightDiv - map(20.0f, 0, finaly, 0, height) - rectHeight;
+    
+    arcSize = map(270.0f, 0, finalx + finaly, 0, width + height);
+    arcDiff = map(20.0f, 0, finalx + finaly, 0, width + height);
   }//end statusSetup()
   
   void reactor()
   {
-    float arcSize = map(270.0f, 0, finalx + finaly, 0, width + height);
-    float arcDiff = map(20.0f, 0, finalx + finaly, 0, width + height);
     float diameter = map(200.0f, 0, finalx + finaly, 0, width + height);
     float diff = TWO_PI / 360;
     strokeWeight(2.0f);
@@ -69,19 +92,17 @@ class Ship
     barChart();
   }//end reactor
   
-  void barChart()
+  void infoChange()
   {
-    float engine = map(100.0f, 0, finaly, 0, height);
-    float shields = map(map(10, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    float ox = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    float fuel = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    float rectLength = map(50.0f, 0, finalx, 0, width);
-    float rectHeight = map(125.0f, 0, finaly, 0, height);
-    float leftX = w1 + map(45.0f, 0, finalx, 0, width);
-    float bottomY = heightDiv + map(20.0f, 0, finaly, 0, height);
-    float rightX = w2 - map(45.0f, 0, finalx, 0, width) - rectLength;
-    float topY = heightDiv - map(20.0f, 0, finaly, 0, height) - rectHeight;
-    
+    engine = map((100), 0, finaly, 0, height);
+    shields = map(map(10, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    ox = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    fuel = map(map(100, 0, 100f, 0, 125f), 0, finaly, 0, height);
+  }//end infoChan
+  
+  void barChart()
+  { 
+    infoChange();
     textAlign(LEFT, CENTER);
     strokeWeight(2.0);
     stroke(green);

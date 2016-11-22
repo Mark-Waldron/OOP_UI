@@ -1,8 +1,68 @@
 class Health
 {
   ArrayList<Float> coY = new ArrayList<Float>();
+  ArrayList<Float> bigCoY = new ArrayList<Float>();
   
-  int index = 0;
+  float widthEnd;
+  float h;
+  float row;
+  float diff;
+  float graphUp;
+  float speed;
+  float minor;
+  float spikeRange;
+  float majorDiv;
+  float centreSpike;
+  float angleHeight;
+  float at;
+  
+  float angleHeight2;
+  float bigAT;
+  
+  int index;
+  int index2;
+  
+  int BPM;
+  
+  void setupRate()
+  {
+    this.BPM = (int)random(60, 120);
+    this.widthEnd = map(592.5f, 0, finalx, 0, width);
+    this.h = height / 2.0f + map(22, 0, finaly, 0, height);
+    this.row = map(15.0f, 0, finaly, 0, height);
+    this.diff = row * 5.0f;
+    this.graphUp = h - diff;
+    this.speed = 1.0f;
+    this.minor = map(finalx / 7.0f, 0, finalx, widthHalf, widthEnd);
+    this.spikeRange = map(finalx / 5.0f, 0, finalx,  widthHalf, widthEnd);
+    this.majorDiv = map(300, 0, finalx, widthHalf, widthEnd);
+    this.centreSpike = map(380, 0, finalx, widthHalf, widthEnd);
+    this.angleHeight = map(random(40, 45), 0.0f, 150.0f, graphUp, graphUp + diff);
+    this.at = atan((angleHeight - graphUp)/(spikeRange - minor));
+    
+    this.angleHeight2 = map((float)BPM, 0.0f, 150.0f, graphUp, graphUp + diff);
+  
+    this.bigAT = atan((angleHeight2 - graphUp)/(centreSpike - majorDiv));
+    
+    this.index = 0;
+    this.index2 = 0;
+    
+    coY.clear();
+    bigCoY.clear();
+    
+    for (float i = 0; i <= (spikeRange - minor) + 1; i += 1.0f)
+    {
+      coY.add(i * tan(at));
+      //println(degrees(at) + "gsdvda");
+      //stroke(green);
+      //line(0, h - sinY[(int)i], width, h - sinY[(int)i]);
+    }//end for
+    
+    for (float i = 0; i <= (centreSpike - majorDiv) + 1; i += 1.0f)
+    {
+      bigCoY.add(i * tan(bigAT));
+    }//end for
+  }
   
   /*
     Method to draw the heart rate monitor's backrgound
@@ -10,16 +70,17 @@ class Health
   
   void drawGraph()
   {
-    float ten = map(15.0f, 0, finaly, 0, height);
-    float widthEnd = map(592.5f, 0, finalx, 0, width);
-    float h = height / 2.0f + map(22, 0, finaly, 0, height);
+    float ten = row;
+    
+    fill(0);
+    noStroke();
+    
+    rect(width / 8.0f, h - (ten * 5.0f), widthEnd - (width / 8.0f), (ten * 10.0f));
+    printBPM(BPM);
     
     stroke(0, 61.0f, 0);
     strokeWeight(lineSize / 2);
-    
-    fill(0);
-    rect(width / 2.0f, h - (ten * 5.0f), widthEnd - width / 2.0f, (ten * 10.0f));
-    
+    stroke(0, 61.0f, 0);
     line(width / 2.0f, h, widthEnd, h);
     
     for (float i = 0; i < 6.0f; i+=1.0f)
@@ -36,31 +97,8 @@ class Health
     Draws line that will act as a heart rate monitor
   */
   
-  void heartRate(float x1)
+  void heartRate()
   {
-    float widthEnd = map(592.5f, 0, finalx, 0, width);
-    float h = height / 2.0f + map(22, 0, finaly, 0, height);
-    float row = map(15.0f, 0, finaly, 0, height);
-    float diff = row * 5.0f;
-    float graphUp = h - diff;
-    float speed = 1.0f;
-    float minor = map(finalx / 7.0f, 0, finalx, x1, widthEnd);
-    float spikeRange = map(finalx / 5.0f, 0, finalx,  x1, widthEnd);
-    
-    //float primRange = 
-    
-    //float heightRange = map(150.0f, 0, 150.0f, h, h - diff);
-    float angleHeight = map(60.0f, 0.0f, 150.0f, graphUp, graphUp + diff);
-    float at = atan((angleHeight - graphUp)/(spikeRange - minor));
-    
-    for (float i = 0; i <= (spikeRange - minor) + 1; i += 1.0f)
-    {
-      coY.add(i * tan(at));
-      //println(degrees(at) + "gsdvda");
-      //stroke(green);
-      //line(0, h - sinY[(int)i], width, h - sinY[(int)i]);
-    }//end for
-    
     stroke(green);
     strokeWeight(1.0f);
     
@@ -74,7 +112,6 @@ class Health
     //line(0, graphUp, width, graphUp);
     //line(0, graphUp + diff * 2.0f, width, graphUp + diff * 2.0f);
     
-    
     if (graphCount >= minor && graphCount < spikeRange && index + 1 < coY.size())
     {
       line(graphCount, h - coY.get(index), graphCount + speed, h - coY.get(index + 1));
@@ -87,7 +124,21 @@ class Health
     }
     else if (graphCount >= spikeRange - speed && graphCount <= spikeRange + speed)
     {
-      line(graphCount, h - coY.get(coY.size() - 1), graphCount + speed, h - (coY.size() - 1));
+      line(graphCount, h - coY.get(coY.size() - 2), graphCount + speed, h - coY.get(coY.size() - 1));
+    }//end else
+    else if (graphCount >= majorDiv && graphCount < centreSpike && index2 + 1 < bigCoY.size())
+    {
+      line(graphCount, h - bigCoY.get(index2), graphCount + speed, h - bigCoY.get(index2 + 1));
+      index2++;
+    }//end if
+    else if (graphCount > centreSpike && index2 - 1 > -1)
+    {
+      line(graphCount, h - bigCoY.get(index2), graphCount + speed, h - bigCoY.get(index2 - 1));
+      index2--;
+    }
+    else if (graphCount >= centreSpike - speed && graphCount <= centreSpike + speed)
+    {
+      line(graphCount, h - bigCoY.get(bigCoY.size() - 2), graphCount + speed, h - bigCoY.get(bigCoY.size() - 1));
     }//end else
     else
     {
@@ -97,9 +148,17 @@ class Health
     if ((graphCount + speed * 3.0f) > widthEnd)
     {
       graphCount = widthHalf;
+      setupRate();
       drawGraph();
-      index = 0;
     }//end if
-    
   }//end heartRate()
+  
+  void printBPM(int BPM)
+  {
+    fill(green);
+    stroke(green);
+    textAlign(RIGHT, CENTER);
+    textSize(map(50, 0, finalx, 0, width));
+    text("BPM-" + BPM, widthHalf - map(40, 0, finalx, 0, width), h);
+  }//end printBPM
 }//end CLASS Health
