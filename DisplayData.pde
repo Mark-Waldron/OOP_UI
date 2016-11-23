@@ -33,8 +33,12 @@ class DisplayData
     
     this.topBorderY = h1 + borderY;
     this.bottomBorderY = h2 - borderY;
+    
     stroke(green);
-    line(leftBorderX, heightDiv, rightBorderX, heightDiv);
-    line(widthDiv, topBorderY, widthDiv, bottomBorderY);
+    
+    line(leftBorderX, topBorderY, leftBorderX, bottomBorderY);
+    line(rightBorderX, topBorderY, rightBorderX, bottomBorderY);
+    line(leftBorderX, bottomBorderY, rightBorderX, bottomBorderY);
+    line(leftBorderX, topBorderY, rightBorderX, topBorderY);
   }//endloadGraphData
 }//end CLASS DisplayData
