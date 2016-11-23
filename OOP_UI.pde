@@ -19,7 +19,11 @@ Ship struct = new Ship();
 
 //Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
+ArrayList<DataFile> data = new ArrayList<DataFile>();
 String files[] = {"HoundDog.mp3", "Fire.mp3", "Care.mp3", "Gypsy.mp3"};
+
+//Table
+Table t;
 
 //Global font variable
 PFont mono;
@@ -71,14 +75,16 @@ float reactorR3 = 0.0f;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
   smooth();
   //noCursor();
   
+  //Date date = new Date("Wed Nov 23 00:00:00 GMT 2016");
+  //println(date);
   jfk = loadImage("JFK_white.png");
   jfkWidth = map(jfk.width, 0, myWidth, 0, width);
   jfkHeight = map(jfk.height, 0, myHeight, 0, height);
@@ -89,6 +95,7 @@ void setup()
   
   //Loading of sound files
   loadSongs();
+  loadFile();
   
   homePage.setUp();
   menuImages.radio();
@@ -164,8 +171,6 @@ void draw()
       change = 0;//Heart Rate check
     }//end default
   }//end if
-  
-  println((int)frameRate);
 }//end draw
 
 /*
@@ -196,3 +201,17 @@ void loadSongs()
     }
     //playlist.get(1).play();
 }//end loadSongs
+
+void loadFile()
+{
+  t = loadTable("data.csv", "header");
+  
+  for (int i = 0; i < t.getRowCount(); i++)
+  {
+    DataFile rowFetch = new DataFile(t.getRow(i));
+    data.add(rowFetch);
+    println(data.get(i).Date);
+  }//end for
+  
+  t = new Table();//Erasing Table connection
+}//end loadFile()

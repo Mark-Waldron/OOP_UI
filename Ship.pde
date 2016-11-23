@@ -94,13 +94,15 @@ class Ship
   
   void infoChange()
   {
-    float enginePer = 100;;
+    float enginePer = 100;
     float shieldsPer = 100;
     float oxPer = 100;
     float fuelPer = 100;
     
+    
+    
     engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    shields = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     fuel = map(map(fuelPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
   }//end infoChan
@@ -141,6 +143,6 @@ class Ship
     text("SHIELDS-", rightX, topY + (rectHeight - shields));
     
     rect(rightX, bottomY + (rectHeight - fuel), rectLength, rectHeight - (rectHeight - fuel));
-    text("FUEL-", rightX, bottomY + (rectHeight - fuel));
+    text("TEMP-", rightX, bottomY + (rectHeight - fuel));
   }//end barChart()
 }//end CLASS Ship
