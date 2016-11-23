@@ -36,6 +36,8 @@ class Health
     this.spikeRange = map(finalx / 5.0f, 0, finalx,  widthHalf, widthEnd);
     this.majorDiv = map(300, 0, finalx, widthHalf, widthEnd);
     this.centreSpike = map(380, 0, finalx, widthHalf, widthEnd);
+    
+    healthAverage = data.get(data.size() - 1).Health;
   }//end defaultSetup()
   
   void setupRate()
@@ -53,6 +55,8 @@ class Health
     
     coY.clear();
     bigCoY.clear();
+    
+    healthAverage = (healthAverage + BPM) / 2;
     
     for (float i = 0; i <= (spikeRange - minor) + 1; i += 1.0f)
     {

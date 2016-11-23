@@ -87,4 +87,9 @@ void keyPressed()
     }//end else
   }//end if
   
+  if (key == 'z' || key == 'Z')
+  {
+    saveTable(t, "data/data.csv");
+    exit();
+  }//end if
 }//end keyPressed

@@ -273,5 +273,5 @@ void loadFile()
   }//end for
   
   //Erasing Table connection
-  t = new Table();
+  //t = new Table();
 }//end loadFile()
