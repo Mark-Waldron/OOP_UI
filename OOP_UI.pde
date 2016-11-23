@@ -16,6 +16,7 @@ DateTime calendar = new DateTime();
 Icons menuImages = new Icons();
 Radio music = new Radio();
 Ship struct = new Ship();
+DisplayData statistic = new DisplayData();
 
 //Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
@@ -159,7 +160,7 @@ void draw()
     {
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
-      
+      statistic.loadGraphData();
       change = 0;//Heart Rate check
       break;
     }
