@@ -13,7 +13,7 @@ Main_Menu upperMenu = new Main_Menu();
 Home homePage = new Home();
 Health vitals = new Health();
 DateTime calendar = new DateTime();
-Icons menuImages = new Icons();
+//Icons menuImages = new Icons();
 Radio music = new Radio();
 Ship struct = new Ship();
 DisplayData statistic = new DisplayData();
@@ -99,7 +99,7 @@ void setup()
   loadFile();
   
   homePage.setUp();
-  menuImages.radio();
+  //menuImages.radio();
   defaultSetup();
   struct.statusSetup();
   struct.infoChange();
