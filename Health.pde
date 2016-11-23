@@ -24,9 +24,8 @@ class Health
   
   int BPM;
   
-  void setupRate()
+  void defaultSetup()
   {
-    this.BPM = (int)random(60, 120);
     this.widthEnd = map(592.5f, 0, finalx, 0, width);
     this.h = height / 2.0f + map(22, 0, finaly, 0, height);
     this.row = map(15.0f, 0, finaly, 0, height);
@@ -37,6 +36,11 @@ class Health
     this.spikeRange = map(finalx / 5.0f, 0, finalx,  widthHalf, widthEnd);
     this.majorDiv = map(300, 0, finalx, widthHalf, widthEnd);
     this.centreSpike = map(380, 0, finalx, widthHalf, widthEnd);
+  }//end defaultSetup()
+  
+  void setupRate()
+  {
+    this.BPM = (int)random(70, 120);
     this.angleHeight = map(random(40, 45), 0.0f, 150.0f, graphUp, graphUp + diff);
     this.at = atan((angleHeight - graphUp)/(spikeRange - minor));
     

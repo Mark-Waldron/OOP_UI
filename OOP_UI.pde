@@ -55,6 +55,12 @@ float myHeight = 768.0f;
 
 float lineSize = 2.0f;
 
+//Averages and calculation variables
+int healthAverage;
+float engineAverage;
+float oxyAverage;
+float reactorAverage;
+
 //Global variables that alter the menu
 float keyCount = 2.0;
 float keyEntered = keyCount;
@@ -112,6 +118,7 @@ void setup()
   defaultSetup();
   struct.statusSetup();
   struct.infoChange();
+  vitals.defaultSetup();
   vitals.setupRate();
 }//end setup
 
