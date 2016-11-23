@@ -128,5 +128,4 @@ class DateTime
     popMatrix();
   }//end temperature()
   */
-  
 }//end CLASS DateTime

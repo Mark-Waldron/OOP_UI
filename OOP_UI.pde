@@ -79,8 +79,8 @@ float reactorR3 = 0.0f;
 
 void setup()
 {
-  size(750, 500);
-  //fullScreen();
+  //size(750, 500);
+  fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);

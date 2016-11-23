@@ -39,7 +39,8 @@ class Main_Menu
     
     fill(green);
     
-    rect(gap + map(1, 0, finalx, 0, width) + menu_div * keyCount, h + map(1.4f, 0, finaly, 0, height), menu_div - map(1.9f, 0, finalx, 0, width), diff - map(1.5f, 0, finaly, 0, height));
+    rect(gap + map(1, 0, finalx, 0, width) + menu_div * keyCount, h + map(1.4f, 0, finaly, 0, height)
+    , menu_div - map(1.9f, 0, finalx, 0, width), diff - map(1.5f, 0, finaly, 0, height));
     
     //For loop to display menu options
     for (int i = 0; i < 5; i++)
@@ -47,13 +48,25 @@ class Main_Menu
       float x1 = gap + menu_div * (float)i;
       float x2 = x1 + menu_div / 2.0f;
       
+      //Higlights current page
+      if (i == keyEntered)
+      {
+        noFill();
+        strokeWeight(1.0f);
+        stroke(green);
+        rect(gap + map(2, 0, finalx, 0, width) + menu_div * keyEntered, h + map(2.4f, 0, finaly, 0, height)
+        , menu_div - map(3.8f, 0, finalx, 0, width), diff - map(2.5f, 0, finaly, 0, height));
+      }//end if
+      
       //Changes the font colour of text if hovered
       if (i == keyCount)
       {
+        noStroke();
         fill(0);
       }
       else
       {
+        noStroke();
         fill(green);
       }//end if
       
