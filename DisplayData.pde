@@ -44,9 +44,13 @@ class DisplayData
   
   void Health()
   {
+    textAlign(CENTER);
+    fill(green);
+    text("Health", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    
+    stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
     {
-      stroke(green);
       float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
       float y1 = map(data.get(i - 1).Health, 0, 100, bottomBorderY, topBorderY);
       float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
@@ -57,6 +61,11 @@ class DisplayData
   
   void Engine()
   {
+    textAlign(CENTER);
+    fill(green);
+    text("Engine", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    
+    stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
     {
       stroke(green);
@@ -70,6 +79,11 @@ class DisplayData
   
   void Fuel()
   {
+    textAlign(CENTER);
+    fill(green);
+    text("Fuel", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    
+    stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
     {
       stroke(green);
@@ -83,6 +97,11 @@ class DisplayData
   
   void Shields()
   {
+    textAlign(CENTER);
+    fill(green);
+    text("Shields", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    
+    stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
     {
       stroke(green);
@@ -96,6 +115,11 @@ class DisplayData
   
   void Oxygen()
   {
+    textAlign(CENTER);
+    fill(green);
+    text("Oxygen", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    
+    stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
     {
       stroke(green);
@@ -109,6 +133,11 @@ class DisplayData
   
   void Reactor()
   {
+    textAlign(CENTER);
+    fill(green);
+    text("Reactor", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    
+    stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
     {
       stroke(green);
