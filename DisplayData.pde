@@ -41,4 +41,82 @@ class DisplayData
     line(leftBorderX, bottomBorderY, rightBorderX, bottomBorderY);
     line(leftBorderX, topBorderY, rightBorderX, topBorderY);
   }//endloadGraphData
+  
+  void Health()
+  {
+    for (int i = 1 ; i < data.size() ; i ++)
+    {
+      stroke(green);
+      float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y1 = map(data.get(i - 1).Health, 0, 100, bottomBorderY, topBorderY);
+      float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y2 = map(data.get(i).Health, 0, 100, bottomBorderY, topBorderY);
+      line(x1, y1, x2, y2);
+    }//end for
+  }//end Health
+  
+  void Engine()
+  {
+    for (int i = 1 ; i < data.size() ; i ++)
+    {
+      stroke(green);
+      float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y1 = map(data.get(i - 1).Engine, 0, 100, bottomBorderY, topBorderY);
+      float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y2 = map(data.get(i).Engine, 0, 100, bottomBorderY, topBorderY);
+      line(x1, y1, x2, y2);
+    }//end for
+  }//end Engine
+  
+  void Fuel()
+  {
+    for (int i = 1 ; i < data.size() ; i ++)
+    {
+      stroke(green);
+      float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y1 = map(data.get(i - 1).Fuel, 0, 100, bottomBorderY, topBorderY);
+      float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y2 = map(data.get(i).Fuel, 0, 100, bottomBorderY, topBorderY);
+      line(x1, y1, x2, y2);
+    }//end for
+  }//end Fuel
+  
+  void Shields()
+  {
+    for (int i = 1 ; i < data.size() ; i ++)
+    {
+      stroke(green);
+      float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y1 = map(data.get(i - 1).Shields, 0, 100, bottomBorderY, topBorderY);
+      float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y2 = map(data.get(i).Shields, 0, 100, bottomBorderY, topBorderY);
+      line(x1, y1, x2, y2);
+    }//end for
+  }//end Shields
+  
+  void Oxygen()
+  {
+    for (int i = 1 ; i < data.size() ; i ++)
+    {
+      stroke(green);
+      float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y1 = map(data.get(i - 1).Oxygen, 0, 100, bottomBorderY, topBorderY);
+      float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y2 = map(data.get(i).Oxygen, 0, 100, bottomBorderY, topBorderY);
+      line(x1, y1, x2, y2);
+    }//end for
+  }//end Shields
+  
+  void Reactor()
+  {
+    for (int i = 1 ; i < data.size() ; i ++)
+    {
+      stroke(green);
+      float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y1 = map(data.get(i - 1).Reactor, 0, 100, bottomBorderY, topBorderY);
+      float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
+      float y2 = map(data.get(i).Reactor, 0, 100, bottomBorderY, topBorderY);
+      line(x1, y1, x2, y2);
+    }//end for
+  }//end Shields
 }//end CLASS DisplayData

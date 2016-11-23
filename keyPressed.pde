@@ -63,4 +63,28 @@ void keyPressed()
     play = false;
   }//end if
   
+  if (keyCode == UP && keyEntered == 4.0f)
+  {
+    if (dataToggle == 0)
+    {
+      dataToggle = 0;
+    }//end health
+    else
+    {
+      dataToggle--;
+    }
+  }//end if
+  
+  if (keyCode == DOWN && keyEntered == 4.0f)
+  {
+    if (dataToggle == 5)
+    {
+      dataToggle = 5;
+    }//end health
+    else
+    {
+      dataToggle++;
+    }//end else
+  }//end if
+  
 }//end keyPressed

@@ -65,6 +65,9 @@ boolean play = false;
 //Global variable for the speed of the heart rate monitor
 float graphCount;
 
+//Changes to graph
+int dataToggle = 0;
+
 //Ship
 float reactorR1 = 0.0f;
 float reactorR2 = TWO_PI;
@@ -161,6 +164,41 @@ void draw()
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
       statistic.loadGraphData();
+      
+      switch(dataToggle)
+      {
+        case 0:
+        {
+          statistic.Health();
+          break;
+        }//end case 0
+        case 1:
+        {
+          statistic.Engine();
+          break;
+        }//end case 0
+        case 2:
+        {
+          statistic.Fuel();
+          break;
+        }//end case 0
+        case 3:
+        {
+          statistic.Shields();
+          break;
+        }//end case 0
+        case 4:
+        {
+          statistic.Oxygen();
+          break;
+        }//end case 0
+        case 5:
+        {
+          statistic.Reactor();
+          break;
+        }//end case 0
+      }//end swtich dataToggle
+      
       change = 0;//Heart Rate check
       break;
     }
@@ -203,9 +241,16 @@ void loadSongs()
     //playlist.get(1).play();
 }//end loadSongs
 
+/*
+  Loads the data file that keeps the log history into a table
+*/
+
 void loadFile()
 {
   t = loadTable("data.csv", "header");
+  
+  //CLearing of data
+  data.clear();
   
   for (int i = 0; i < t.getRowCount(); i++)
   {
@@ -214,5 +259,6 @@ void loadFile()
     println(data.get(i).Date);
   }//end for
   
-  t = new Table();//Erasing Table connection
+  //Erasing Table connection
+  t = new Table();
 }//end loadFile()
