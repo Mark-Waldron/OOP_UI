@@ -18,6 +18,10 @@ Radio music = new Radio();
 Ship struct = new Ship();
 DisplayData statistic = new DisplayData();
 
+/*
+  Global declarations (EWW!!!)
+*/
+
 //Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
 ArrayList<DataFile> data = new ArrayList<DataFile>();
@@ -45,6 +49,7 @@ float finalx = 750;
 float finaly = 500;
 float widthHalf;
 
+//Dev Width and Height
 float myWidth = 1366.0f;
 float myHeight = 768.0f;
 
@@ -60,6 +65,7 @@ int change = 0;
 float radioToggle = 3.0f;
 float theta = 0.0f;
 
+//Play check
 boolean play = false;
 
 //Global variable for the speed of the heart rate monitor
