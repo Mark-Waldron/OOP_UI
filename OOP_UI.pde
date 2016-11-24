@@ -85,6 +85,11 @@ float reactorR1 = 0.0f;
 float reactorR2 = TWO_PI;
 float reactorR3 = 0.0f;
 
+float enginePer = 100;
+float shieldsPer = 100;
+float oxPer = 100;
+float fuelPer = 100;
+
 /*
   Initalises program and is called once throughout runtime
 */

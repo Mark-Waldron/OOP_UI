@@ -94,12 +94,14 @@ class Ship
   
   void infoChange()
   {
-    float enginePer = 100;
-    float shieldsPer = 100;
-    float oxPer = 100;
-    float fuelPer = 100;
-    
-    
+    if ((2 == (int)random(1,2)) && (enginePer != 1))
+    {
+      enginePer--;
+    }//end if
+    else if (enginePer != 100)
+    {
+      enginePer++;
+    }//end else if
     
     engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
