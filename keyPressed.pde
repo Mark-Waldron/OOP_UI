@@ -89,7 +89,18 @@ void keyPressed()
   
   if (key == 'z' || key == 'Z')
   {
+    TableRow newRow = t.addRow();
+    newRow.setInt("Log", data.size() + 1);
+    newRow.setString("Date", dateString);
+    newRow.setInt("Health", healthAverage);
+    newRow.setFloat("Engine", 5);
+    newRow.setFloat("Fuel", 5);
+    newRow.setFloat("Shields", 5);
+    newRow.setFloat("Oxygen", 5);
+    newRow.setFloat("Reactor", 5);
+    
     saveTable(t, "data/data.csv");
+    
     exit();
   }//end if
 }//end keyPressed

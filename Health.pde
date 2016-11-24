@@ -36,12 +36,12 @@ class Health
     this.spikeRange = map(finalx / 5.0f, 0, finalx,  widthHalf, widthEnd);
     this.majorDiv = map(300, 0, finalx, widthHalf, widthEnd);
     this.centreSpike = map(380, 0, finalx, widthHalf, widthEnd);
-    
-    healthAverage = data.get(data.size() - 1).Health;
   }//end defaultSetup()
   
   void setupRate()
   {
+    this.BPM = (int)random(70, 120);
+    healthAverage = (healthAverage + BPM);
     this.BPM = (int)random(70, 120);
     this.angleHeight = map(random(40, 45), 0.0f, 150.0f, graphUp, graphUp + diff);
     this.at = atan((angleHeight - graphUp)/(spikeRange - minor));

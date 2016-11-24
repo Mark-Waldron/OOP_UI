@@ -1,9 +1,7 @@
 //Library Imports
 import processing.sound.*;
 import java.util.Date;
-
-Date x = new Date( );
-
+import java.text.SimpleDateFormat;
 /*
   Creation of objects 
 */
@@ -38,6 +36,8 @@ PShape radio;
 
 //Colour
 color green = #20C20E;
+
+String dateString;
 
 //Images
 PImage jfk;
@@ -99,8 +99,11 @@ void setup()
   smooth();
   //noCursor();
   
-  //Date date = new Date("Wed Nov 23 00:00:00 GMT 2016");
-  //println(date);
+  Date date = new Date();
+  SimpleDateFormat sdf = new SimpleDateFormat("EEE, MMM dd HH:mm:ss z yyyy");
+  dateString = sdf.format(date);
+  //println("now formatted to = " + dateString); 
+  
   jfk = loadImage("JFK_white.png");
   jfkWidth = map(jfk.width, 0, myWidth, 0, width);
   jfkHeight = map(jfk.height, 0, myHeight, 0, height);
@@ -140,6 +143,8 @@ void draw()
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
       music.test();
+      
+      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
       change = 0;
       break;
     }//end case 0
@@ -151,6 +156,7 @@ void draw()
         vitals.drawGraph();//Draws graph
         change++;//Ensures that graph is drawn once
       }//end if
+      
       upperMenu.mainOptions();//Menu rendering
       vitals.heartRate();//Heart rate render
       break;
@@ -162,6 +168,7 @@ void draw()
       homePage.radar();//Radar draw
       
       change = 0;//Heart Rate check
+      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
       break;
     }//end HOME case
     case 3:
@@ -169,6 +176,8 @@ void draw()
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
       struct.reactor();
+      
+      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
       change = 0;//Heart Rate check
       break;
     }//end case 3
@@ -212,6 +221,7 @@ void draw()
         }//end case 0
       }//end swtich dataToggle
       
+      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
       change = 0;//Heart Rate check
       break;
     }

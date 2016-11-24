@@ -23,9 +23,4 @@ class DataFile
   /*
     Method to write new data to file when exited
   */
-  
-  void fileOut()
-  {
-    
-  }//end fileOut
 }//end CLASS DataFiles
