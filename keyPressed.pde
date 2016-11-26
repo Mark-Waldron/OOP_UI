@@ -93,11 +93,11 @@ void keyPressed()
     newRow.setInt("Log", data.size() + 1);
     newRow.setString("Date", dateString);
     newRow.setInt("Health", healthAverage);
-    newRow.setFloat("Engine", 5);
-    newRow.setFloat("Fuel", 5);
-    newRow.setFloat("Shields", 5);
-    newRow.setFloat("Oxygen", 5);
-    newRow.setFloat("Reactor", 5);
+    newRow.setFloat("Engine", engineAverage);
+    newRow.setFloat("Temp", tempAverage);
+    newRow.setFloat("Shields", shieldAverage);
+    newRow.setFloat("Oxygen", oxyAverage);
+    newRow.setFloat("Reactor", reactorAverage);
     
     saveTable(t, "data/data.csv");
     

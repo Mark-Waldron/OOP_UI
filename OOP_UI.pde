@@ -159,7 +159,7 @@ void draw()
       upperMenu.mainOptions();//Menu rendering
       music.test();
       
-      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
+      vitals.changeBPM();
       change = 0;
       break;
     }//end case 0
@@ -183,7 +183,7 @@ void draw()
       homePage.radar();//Radar draw
       
       change = 0;//Heart Rate check
-      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
+      vitals.changeBPM();
       break;
     }//end HOME case
     case 3:
@@ -195,7 +195,7 @@ void draw()
       struct.reactor();
       
       change = 0;//Heart Rate check
-      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
+      vitals.changeBPM();
       break;
     }//end case 3
     case 4:
@@ -239,7 +239,7 @@ void draw()
         }//end case 0
       }//end swtich dataToggle
       
-      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
+      vitals.changeBPM();
       change = 0;//Heart Rate check
       break;
     }

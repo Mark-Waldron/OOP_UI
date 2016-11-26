@@ -170,4 +170,10 @@ class Health
     text("BPM", widthHalf - map(40, 0, finalx, 0, width), h - (diff / 5.0f) * 2.0f);
     text(BPM, widthHalf - map(40, 0, finalx, 0, width), h + (diff / 5.0f) * 2.0f);
   }//end printBPM
+  
+  void changeBPM()
+  {
+    this.BPM = (int)random(70, 120);
+    healthAverage = (healthAverage + BPM) / 2;
+  }
 }//end CLASS Health
