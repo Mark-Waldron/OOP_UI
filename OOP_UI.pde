@@ -2,6 +2,12 @@
 import processing.sound.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
+//Arraylist to host the sound files
+ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
+ArrayList<DataFile> data = new ArrayList<DataFile>();
+String files[] = {"HoundDog.mp3", "Fire.mp3", "Care.mp3", "Gypsy.mp3"};
+
 /*
   Creation of objects 
 */
@@ -11,7 +17,6 @@ Main_Menu upperMenu = new Main_Menu();
 Home homePage = new Home();
 Health vitals = new Health();
 DateTime calendar = new DateTime();
-//Icons menuImages = new Icons();
 Radio music = new Radio();
 Ship struct = new Ship();
 DisplayData statistic = new DisplayData();
@@ -19,11 +24,6 @@ DisplayData statistic = new DisplayData();
 /*
   Global declarations (EWW!!!)
 */
-
-//Arraylist to host the sound files
-ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
-ArrayList<DataFile> data = new ArrayList<DataFile>();
-String files[] = {"HoundDog.mp3", "Fire.mp3", "Care.mp3", "Gypsy.mp3"};
 
 //Table
 Table t;
@@ -58,8 +58,16 @@ float lineSize = 2.0f;
 //Averages and calculation variables
 int healthAverage;
 float engineAverage;
+float shieldAverage;
 float oxyAverage;
+float tempAverage;
 float reactorAverage;
+
+float enginePer = 0;
+float shieldsPer = 0;
+float oxPer = 0;
+float tempPer = 0;
+float reactPer = 0;
 
 //Global variables that alter the menu
 float keyCount = 2.0;
@@ -85,19 +93,14 @@ float reactorR1 = 0.0f;
 float reactorR2 = TWO_PI;
 float reactorR3 = 0.0f;
 
-float enginePer = 100;
-float shieldsPer = 100;
-float oxPer = 100;
-float fuelPer = 100;
-
 /*
   Initalises program and is called once throughout runtime
 */
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
@@ -120,6 +123,7 @@ void setup()
   //Loading of sound files
   loadSongs();
   loadFile();
+  loadAverages();
   
   homePage.setUp();
   //menuImages.radio();
@@ -284,9 +288,19 @@ void loadFile()
   {
     DataFile rowFetch = new DataFile(t.getRow(i));
     data.add(rowFetch);
-    println(data.get(i).Date);
   }//end for
-  
-  //Erasing Table connection
-  //t = new Table();
 }//end loadFile()
+
+/*
+  Loads the last record average into the current averages
+*/
+
+void loadAverages()
+{
+  enginePer = data.get(data.size() - 1).Engine;
+  shieldsPer = data.get(data.size() - 1).Shields;
+  println(shieldsPer);
+  oxPer = data.get(data.size() - 1).Oxygen;
+  tempPer = data.get(data.size() - 1).Temp;
+  reactPer = data.get(data.size() - 1).Reactor;
+}//end loadAverages

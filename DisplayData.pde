@@ -88,9 +88,9 @@ class DisplayData
     {
       stroke(green);
       float x1 = map(i - 1, 0, data.size() - 1, leftBorderX, rightBorderX);
-      float y1 = map(data.get(i - 1).Fuel, 0, 100, bottomBorderY, topBorderY);
+      float y1 = map(data.get(i - 1).Temp, 0, 100, bottomBorderY, topBorderY);
       float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
-      float y2 = map(data.get(i).Fuel, 0, 100, bottomBorderY, topBorderY);
+      float y2 = map(data.get(i).Temp, 0, 100, bottomBorderY, topBorderY);
       line(x1, y1, x2, y2);
     }//end for
   }//end Fuel

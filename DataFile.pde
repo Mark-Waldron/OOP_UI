@@ -4,7 +4,7 @@ class DataFile
   String Date;
   int Health;
   float Engine;
-  float Fuel;
+  float Temp;
   float Shields;
   float Oxygen;
   float Reactor;
@@ -15,12 +15,9 @@ class DataFile
     this.Date = row.getString("Date");
     this.Health = row.getInt("Health");
     this.Engine = row.getFloat("Engine");
-    this.Fuel = row.getFloat("Fuel");
+    this.Temp = row.getFloat("Temp");
+    this.Shields =row.getFloat("Shields");
     this.Oxygen = row.getFloat("Oxygen");
     this.Reactor = row.getFloat("Reactor");
   }//end Constructor
-  
-  /*
-    Method to write new data to file when exited
-  */
 }//end CLASS DataFiles

@@ -10,7 +10,8 @@ class Ship
   float engine;
   float shields;
   float ox;
-  float fuel;
+  float temp;
+  float reactor;
   float rectLength;
   float rectHeight;
   float leftX;
@@ -43,8 +44,10 @@ class Ship
   
   void reactor()
   {
-    float diameter = map(200.0f, 0, finalx + finaly, 0, width + height);
+    float outline = map(200.0f, 0.0f, finalx + finaly, 0.0f, width + height);
+    float diameter = map(reactor, 0, finalx + finaly, 0, width + height);
     float diff = TWO_PI / 360;
+    
     strokeWeight(2.0f);
     noStroke();
 
@@ -83,9 +86,14 @@ class Ship
 
     fill(0);
     stroke(green);
+    strokeWeight(1.0f);
+    ellipse(width / 2.0f, heightDiv, outline, outline);
+    
+    strokeWeight(lineSize);
     ellipse(width / 2.0f, heightDiv, diameter, diameter);
     
     //Display of Reactor levels
+    textAlign(CENTER, CENTER);
     textSize(map(140.0f, 0.0f, finalx + finaly, 0.0f, diameter));
     fill(green);
     text("Recator Levels", width / 2.0f, heightDiv);
@@ -97,23 +105,6 @@ class Ship
     //line(0, heightDiv, width, heightDiv);
     barChart();
   }//end reactor
-  
-  void infoChange()
-  {
-    if ((2 == (int)random(1,2)) && (enginePer != 1))
-    {
-      enginePer--;
-    }//end if
-    else if (enginePer != 100)
-    {
-      enginePer++;
-    }//end else if
-    
-    engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
-    fuel = map(map(fuelPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
-  }//end infoChan
   
   void barChart()
   { 
@@ -150,7 +141,55 @@ class Ship
     rect(rightX, topY + (rectHeight - shields), rectLength, rectHeight - (rectHeight - shields));
     text("SHIELDS-", rightX, topY + (rectHeight - shields));
     
-    rect(rightX, bottomY + (rectHeight - fuel), rectLength, rectHeight - (rectHeight - fuel));
-    text("TEMP-", rightX, bottomY + (rectHeight - fuel));
+    rect(rightX, bottomY + (rectHeight - temp), rectLength, rectHeight - (rectHeight - temp));
+    text("TEMP-", rightX, bottomY + (rectHeight - temp));
   }//end barChart()
+  
+  void infoChange()
+  { 
+    float spike = random(1, 40);
+    if (frameCount % 30 == 0 && enginePer != 100)
+    {
+      enginePer += (int)random(1,3);
+    }//end if
+    else if (frameCount % 100 == 0 && (enginePer + spike) <= 100)
+    {
+      enginePer += spike;
+    }
+    else if (frameCount % 2 == 0 && (enginePer) >= 1)
+    {
+      enginePer -= (int)random(1,3);
+    }
+    
+    spike = random(1, 40);
+    
+    if (frameCount % 30 == 0 && shieldsPer != 100)
+    {
+      shieldsPer += (int)random(1,3);
+    }//end if
+    else if (frameCount % 100 == 0 && (shieldsPer + spike) <= 100)
+    {
+      shieldsPer += spike;
+    }
+    else if (frameCount % 2 == 0 && (shieldsPer) >= 1)
+    {
+      shieldsPer -= (int)random(1,3);
+    }
+    
+    if (((int)random(0, 4)) == 1 && (oxPer-1) >= 0)
+    {
+      oxPer--;
+    }//end if
+    
+    if (((int)random(0, 3)) == 1 && (oxPer+1) <= 100.0f)
+    {
+      oxPer++;
+    }//end if
+    
+    engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    temp = map(map(tempPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
+    reactor = map(reactPer, 0.0f,100.0f, 100.0f, 200.0f);
+  }//end infoChan
 }//end CLASS Ship
