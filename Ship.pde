@@ -108,11 +108,6 @@ class Ship
   
   void barChart()
   { 
-    if (frameCount % 10 == 0)
-    {
-      infoChange();
-    }//end barChart()
-    
     textAlign(LEFT, CENTER);
     strokeWeight(2.0);
     stroke(green);
@@ -180,16 +175,40 @@ class Ship
     {
       oxPer--;
     }//end if
-    
     if (((int)random(0, 3)) == 1 && (oxPer+1) <= 100.0f)
     {
       oxPer++;
     }//end if
+    
+    if (((int)random(0, 18)) == 1 && (tempPer+1) <= 100.0f)
+    {
+      tempPer++;
+    }//end if
+    if (((int)random(0, 15)) == 1 && (tempPer-1) >= 1.0f)
+    {
+      tempPer--;
+    }//end if
+    
+    if (((int)random(0, 5)) == 1 && (reactPer+1) <= 100.0f)
+    {
+      reactPer++;
+    }//end if
+    if (((int)random(0, 4)) == 1 && (reactPer-1) >= 1.0f)
+    {
+      reactPer--;
+    }//end if
+    
     
     engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     temp = map(map(tempPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     reactor = map(reactPer, 0.0f,100.0f, 100.0f, 200.0f);
+    
+    engineAverage = (engineAverage + enginePer) / 2.0f;
+    shieldAverage = (shieldAverage + shieldsPer) / 2.0f;
+    oxyAverage = (oxyAverage + oxPer) / 2.0f;
+    tempAverage = (tempAverage + tempPer) / 2.0f;
+    reactorAverage = (reactorAverage + reactPer) / 2.0f;
   }//end infoChan
 }//end CLASS Ship

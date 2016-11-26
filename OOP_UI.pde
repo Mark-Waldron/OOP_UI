@@ -143,6 +143,12 @@ void draw()
   //Default removal of fill and the cursor
   noFill();
   
+  //Changes statistics
+  if (frameCount % 10 == 0)
+  {
+    struct.infoChange();
+  }//end barChart()
+
   //Swtich statement to change menu options
   switch((int)keyEntered)
   {
@@ -184,10 +190,12 @@ void draw()
     {
       defaultSetup();//Default setup call
       upperMenu.mainOptions();//Menu rendering
+      
+      //Draws data
       struct.reactor();
       
-      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
       change = 0;//Heart Rate check
+      healthAverage = (healthAverage + (int)random(70, 120)) / 2;
       break;
     }//end case 3
     case 4:
@@ -196,6 +204,7 @@ void draw()
       upperMenu.mainOptions();//Menu rendering
       statistic.loadGraphData();
       
+      //Swtiches data to display
       switch(dataToggle)
       {
         case 0:
@@ -299,7 +308,6 @@ void loadAverages()
 {
   enginePer = data.get(data.size() - 1).Engine;
   shieldsPer = data.get(data.size() - 1).Shields;
-  println(shieldsPer);
   oxPer = data.get(data.size() - 1).Oxygen;
   tempPer = data.get(data.size() - 1).Temp;
   reactPer = data.get(data.size() - 1).Reactor;
