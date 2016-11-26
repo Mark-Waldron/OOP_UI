@@ -41,8 +41,6 @@ class Health
   void setupRate()
   {
     this.BPM = (int)random(70, 120);
-    healthAverage = (healthAverage + BPM);
-    this.BPM = (int)random(70, 120);
     this.angleHeight = map(random(40, 45), 0.0f, 150.0f, graphUp, graphUp + diff);
     this.at = atan((angleHeight - graphUp)/(spikeRange - minor));
     
@@ -173,7 +171,9 @@ class Health
   
   void changeBPM()
   {
-    this.BPM = (int)random(70, 120);
-    healthAverage = (healthAverage + BPM) / 2;
-  }
+    healthAverage = (healthAverage + (int)random(70, 120)) / 2;
+    index = 0;
+    index2 = 0;
+    setupRate();
+  }//end changeBPM
 }//end CLASS Health
