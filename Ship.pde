@@ -84,6 +84,12 @@ class Ship
     fill(0);
     stroke(green);
     ellipse(width / 2.0f, heightDiv, diameter, diameter);
+    
+    //Display of Reactor levels
+    textSize(map(140.0f, 0.0f, finalx + finaly, 0.0f, diameter));
+    fill(green);
+    text("Recator Levels", width / 2.0f, heightDiv);
+    
     reactorR1 += 0.01f;
     reactorR2 -= 0.02f;
     reactorR3 += 0.03f;
