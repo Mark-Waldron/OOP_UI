@@ -77,6 +77,7 @@ class Health
   void drawGraph()
   {
     float ten = row;
+    float rangeNum = 0;
     
     fill(0);
     noStroke();
@@ -89,10 +90,17 @@ class Health
     stroke(0, 61.0f, 0);
     line(width / 2.0f, h, widthEnd, h);
     
+    textAlign(RIGHT, CENTER);
+    textSize(map(10.0f, 0, finalx + finaly, 0, width + height));
+    text(rangeNum + "-", width / 2.0f, h);
+    
     for (float i = 0; i < 6.0f; i+=1.0f)
     {
       line(width / 2.0f, h - (ten * i), widthEnd, h - (ten * i));
+      text(rangeNum + "-", width / 2.0f, h - (ten * i));
       line(width / 2.0f, h + (ten * i), widthEnd, h + (ten * i));
+      text(rangeNum + "-", width / 2.0f, h + (ten * i));
+      rangeNum += 30;
     }//end for
     
     line(width / 2.0f, h - (ten * 5.0f), width / 2.0f, h + (ten * 5.0f));
