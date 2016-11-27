@@ -40,11 +40,20 @@ class DisplayData
     line(rightBorderX, topBorderY, rightBorderX, bottomBorderY);
     line(leftBorderX, bottomBorderY, rightBorderX, bottomBorderY);
     line(leftBorderX, topBorderY, rightBorderX, topBorderY);
+    
+    textSize(map(20, 0, finalx + finaly, 0, width + height));
+    fill(green);
+    textAlign(RIGHT, CENTER);
+    for (float i = 0.0; i <= 10.0f; i += 1.0f)
+    {
+      text((int)i + "-",leftBorderX - map(2.0f, 0, finalx, 0, width), bottomBorderY - (((bottomBorderY - topBorderY) / 10.0f) * i));
+    }//end for
   }//endloadGraphData
   
   void Health()
   {
     textAlign(CENTER);
+    textSize(map(30, 0, finalx + finaly, 0, width + height));
     fill(green);
     text("Health", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     
@@ -62,6 +71,7 @@ class DisplayData
   void Engine()
   {
     textAlign(CENTER);
+    textSize(map(30, 0, finalx + finaly, 0, width + height));
     fill(green);
     text("Engine", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     
@@ -80,6 +90,7 @@ class DisplayData
   void Fuel()
   {
     textAlign(CENTER);
+    textSize(map(30, 0, finalx + finaly, 0, width + height));
     fill(green);
     text("Temperature", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     
@@ -98,6 +109,7 @@ class DisplayData
   void Shields()
   {
     textAlign(CENTER);
+    textSize(map(30, 0, finalx + finaly, 0, width + height));
     fill(green);
     text("Shields", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     
@@ -116,6 +128,7 @@ class DisplayData
   void Oxygen()
   {
     textAlign(CENTER);
+    textSize(map(30, 0, finalx + finaly, 0, width + height));
     fill(green);
     text("Oxygen", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     
@@ -134,6 +147,7 @@ class DisplayData
   void Reactor()
   {
     textAlign(CENTER);
+    textSize(map(30, 0, finalx + finaly, 0, width + height));
     fill(green);
     text("Reactor", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     

@@ -56,6 +56,8 @@ class Home
     }//end for
     //text(String.format("%.1f", distance), (w2 - w1) / 4.0f, (h2 - h1) / 2.0f);
     
+    index = 0;
+    
     popMatrix();
     
     count += TWO_PI / 360.0f;

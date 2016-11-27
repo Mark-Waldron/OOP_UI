@@ -110,7 +110,6 @@ void setup()
   Date date = new Date();
   SimpleDateFormat sdf = new SimpleDateFormat("EEE, MMM dd HH:mm:ss z yyyy");
   dateString = sdf.format(date);
-  //println("now formatted to = " + dateString); 
   
   jfk = loadImage("JFK_white.png");
   jfkWidth = map(jfk.width, 0, myWidth, 0, width);
