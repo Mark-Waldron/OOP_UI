@@ -4,11 +4,15 @@
 
 class Icons
 {
-  void radio()
+  void radioDraw()
   {
+    fill(green);
     float sLength = 50.0f;
     float angleLine = (sLength * sin(PI / 4.0f));
     noStroke();
+
+    fill(green);
+    
     line(0,0,50, (sLength * sin(PI / 4.0f)));
     radio = createShape();
     radio.beginShape();
@@ -22,7 +26,7 @@ class Icons
     
     radio.vertex(sLength, sLength);
     radio.vertex(0, sLength);
-    radio.scale(.3);
+    radio.scale(map(1, 0, finalx + finaly, 0, width + height));
     radio.endShape(CLOSE);
   }//end radio()
 }//end CLASS Icons

@@ -1,5 +1,6 @@
 class Health
 {
+  //Array lists to hold the co-orindates of the spike values
   ArrayList<Float> coY = new ArrayList<Float>();
   ArrayList<Float> bigCoY = new ArrayList<Float>();
   
