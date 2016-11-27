@@ -26,6 +26,8 @@ class Home
   {
     float diameter = map(130.0f, 0, finalx + finaly, 0, width + height);
     double distance = 22000000;
+    color black = 0;
+    float index = 0;
     noStroke();
     fill(0);
     strokeWeight(lineSize);
@@ -40,13 +42,27 @@ class Home
     //Radar draw
     noStroke();
     fill(green);
-    arc(width * .85, height * .75f, diameter, diameter, (TWO_PI / 360.0f) * count, (TWO_PI / 360.0f) * count + PI / 4.0f);
+    pushMatrix();
+    
+    translate(width * .85, height * .75f);
+    rotate(count);
+    
+    for(float i = TWO_PI / 4.0f; i >= 0; i -= ((TWO_PI / 4.0f) / 100.0f))
+    {
+      color x = lerpColor(green, black, index);
+      fill(x);
+      arc(0.0f, 0.0f, diameter, diameter, count + i - ((TWO_PI / 4.0f) / 90.0f), count + i);
+      index += .01;
+    }//end for
     //text(String.format("%.1f", distance), (w2 - w1) / 4.0f, (h2 - h1) / 2.0f);
-    count++;
+    
+    popMatrix();
+    
+    count += TWO_PI / 360.0f;
     
     //Ensures the radar counter is rest
     //to prevent any overflow
-    if (count > 360)
+    if (count > TWO_PI)
     {
       count = 0.0f;
     }//end if

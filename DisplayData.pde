@@ -81,7 +81,7 @@ class DisplayData
   {
     textAlign(CENTER);
     fill(green);
-    text("Fuel", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
+    text("Temperature", widthDiv, topBorderY - map(10, 0, finaly, 0, height));
     
     stroke(green);
     for (int i = 1 ; i < data.size() ; i ++)
