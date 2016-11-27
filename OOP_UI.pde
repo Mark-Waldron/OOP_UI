@@ -14,7 +14,6 @@ float dataPerArray[] = new float[5];
   Creation of objects 
 */
 Screen layout = new Screen();
-Outline frame = new Outline();
 Main_Menu upperMenu = new Main_Menu();
 Home homePage = new Home();
 Health vitals = new Health();
@@ -167,7 +166,7 @@ void draw()
       {
         defaultSetup();//Default setup call
         upperMenu.mainOptions();//Menu rendering
-        music.test();
+        music.setUp();
         
         vitals.changeBPM();
         change = 0;
@@ -267,7 +266,7 @@ void draw()
   {
     background(#121212);
     layout.screenDraw();//Curved Screen draw method
-    frame.hudOutline();//Frame draw method
+    layout.frame.hudOutline();//Frame draw method
     homePage.Welcome();
   }//end else
 }//end draw
@@ -282,7 +281,7 @@ void defaultSetup()
 {
   background(#121212);
   layout.screenDraw();//Curved Screen draw method
-  frame.hudOutline();//Frame draw method
+  layout.frame.hudOutline();//Frame draw method
   calendar.clock();//Clock display method
   graphCount = widthHalf;
   vitals.index = 0;

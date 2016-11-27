@@ -1,5 +1,7 @@
 class Screen
 {
+  //Object of the Outline class
+  Outline frame = new Outline();
   //A method to draw screen defaults
   void screenDraw()
   {
@@ -26,8 +28,5 @@ class Screen
     //Arc left + right
     arc((width / 15.0f), height / 2.0f, bottomx, bottomy, (HALF_PI / 90.0f) * 95.0f, (HALF_PI / 90.0f) * 265.0f);
     arc((width / 15.0f) * 14.0f, height / 2.0f, bottomx, bottomy, (HALF_PI / 90.0f) * 275.0f, ((TWO_PI + HALF_PI) / 450.0f) * 445.0f);
-    
-    line (width * 0.42, (height / 500.0f) * 26.0f, width * 0.42, height * 0.14);
-    line (width * 0.58, (height / 500.0f) * 26.0f, width * 0.58, height * 0.14);
   }//end screenDraw()
 }//end CLASS Screen

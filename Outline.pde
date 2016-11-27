@@ -21,6 +21,9 @@ class Outline
     
     stroke(green);
     
+    line (width * 0.42, (height / 500.0f) * 26.0f, width * 0.42, height * 0.14);
+    line (width * 0.58, (height / 500.0f) * 26.0f, width * 0.58, height * 0.14);
+    
     //Bottom line clock
     line (width * 0.42f, height * 0.14, width * 0.58f, height * 0.14);
     

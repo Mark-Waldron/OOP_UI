@@ -1,5 +1,5 @@
 /*
-  Mrthod that retrieves a users key inputs
+  Method that retrieves a users key inputs
 */
 
 void keyPressed()

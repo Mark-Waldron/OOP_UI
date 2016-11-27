@@ -1,17 +1,8 @@
-class Radio
+class Radio extends Dimension
 {
   //Image locations
   float jfk_X;
   float jfk_Y;
-  
-  //Width and height of scope
-  float w1;
-  float w2;
-  float widthDiv;
-  
-  float h1;
-  float h2;
-  float heightDiv;
   
   //Left side of the menu and panel
   float alter;
@@ -42,17 +33,13 @@ class Radio
     A method that will display a menu with options as to what song a user would like to play
   */
    
-  void test()
+  void setUp()
   {
+    super.setUp();
+    
     //Initising of variables local to the class
     this.jfk_X = map((finalx / 4.0f) * 3.0f - 50.0f, 0, finalx, 0, width);
     this.jfk_Y = (height / 2.0f - (jfkHeight / 2.0f) / 2.0f) + map(22, 0, finaly, 0, height);
-    this.w1 = map(24.5f, 0, finalx, 0, width);
-    this.w2 = map(finalx - 24.5f, 0, finalx, 0, width);
-    this.widthDiv = (w1 + w2) / 2.0f;
-    this.h1 = map(122.0f, 0, finaly, 0, height);
-    this.h2 = map(finaly - 25.0f, 0, finaly, 0, height);
-    this.heightDiv = (h1 + h2) / 2.0f;
     this.alter = map(width / 6.0f, 0, width, 24.5f, width - 24.5f);
     this.panelDiff = map(10.0f, 0, finaly, 0, height);
     this.gap = map(30, 0, finaly, 0, height);
