@@ -50,7 +50,8 @@ void keyPressed()
     }//end if
     
     playing = (int)radioToggle;
-    Songs playPause = new Songs(playlist.get((int)radioToggle));
+    playPause = new Songs(playlist.get((int)radioToggle));
+    playTime = frameCount + (duration * 60.0f);
     play = true;
     theta = 0.0f;
   }//end if

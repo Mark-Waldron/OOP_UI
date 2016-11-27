@@ -100,6 +100,9 @@ float homeIndex = 0;
 //Playing Song
 int playing = -1;
 float duration = 0;
+float playTime;
+
+Songs playPause;
 
 /*
   Initalises program and is called once throughout runtime
@@ -147,6 +150,17 @@ void draw()
 {
   //Default removal of fill and the cursor
   noFill();
+  
+  if (playing > -1)
+  {
+    if (frameCount > playTime)
+    {
+      play = false;
+      playPause.stop();
+      playing = -1;
+      play = false;
+    }
+  }
   
   //Changes statistics
   if (frameCount % 10 == 0)

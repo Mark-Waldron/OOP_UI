@@ -9,4 +9,9 @@ class Songs
     
     duration = this.song.duration();
   }//end constructor
+  
+  void stop()
+  {
+    song.stop();
+  }//end stop()
 }//end CLASS Songs
