@@ -21,9 +21,4 @@ class Icons
     radio.scale(.3);
     radio.endShape(CLOSE);
   }//end radio()
-  
-  void Health()
-  {
-    
-  }//end Health
 }//end CLASS Icons

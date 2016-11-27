@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
 ArrayList<DataFile> data = new ArrayList<DataFile>();
 String files[] = {"HoundDog.mp3", "Fire.mp3", "Care.mp3", "Gypsy.mp3"};
+String dataNames[] = {"Engine", "Shields", "Oxygen","Temperature", "Reactor"};
+float dataPerArray[] = new float[5];
 
 /*
   Creation of objects 
@@ -93,6 +95,9 @@ float reactorR1 = 0.0f;
 float reactorR2 = TWO_PI;
 float reactorR3 = 0.0f;
 
+//Home lerp index
+float homeIndex = 0;
+
 /*
   Initalises program and is called once throughout runtime
 */
@@ -126,7 +131,6 @@ void setup()
   
   homePage.setUp();
   //menuImages.radio();
-  defaultSetup();
   struct.statusSetup();
   struct.infoChange();
   vitals.defaultSetup();
@@ -147,109 +151,126 @@ void draw()
   {
     struct.infoChange();
   }//end barChart()
+  
+  dataPerArray[0] = enginePer;
+  dataPerArray[1] = shieldsPer;
+  dataPerArray[2] = oxPer;
+  dataPerArray[3] = tempPer;
+  dataPerArray[4] = reactPer;
 
-  //Swtich statement to change menu options
-  switch((int)keyEntered)
+  if (frameCount > 420)
   {
-    //Health
-    case 0:
+    //Swtich statement to change menu options
+    switch((int)keyEntered)
     {
-      defaultSetup();//Default setup call
-      upperMenu.mainOptions();//Menu rendering
-      music.test();
-      
-      vitals.changeBPM();
-      change = 0;
-      break;
-    }//end case 0
-    case 1:
-    {
-      if (change == 0)
+      //Health
+      case 0:
       {
         defaultSetup();//Default setup call
-        vitals.drawGraph();//Draws graph
-        change++;//Ensures that graph is drawn once
-      }//end if
-      
-      upperMenu.mainOptions();//Menu rendering
-      vitals.heartRate();//Heart rate render
-      break;
-    }//end HEALTH case
-    case 2:
-    {
-      defaultSetup();//Default setup call
-      upperMenu.mainOptions();//Menu rendering
-      homePage.radar();//Radar draw
-      
-      change = 0;//Heart Rate check
-      vitals.changeBPM();
-      break;
-    }//end HOME case
-    case 3:
-    {
-      defaultSetup();//Default setup call
-      upperMenu.mainOptions();//Menu rendering
-      
-      //Draws data
-      struct.reactor();
-      
-      change = 0;//Heart Rate check
-      vitals.changeBPM();
-      break;
-    }//end case 3
-    case 4:
-    {
-      defaultSetup();//Default setup call
-      upperMenu.mainOptions();//Menu rendering
-      statistic.loadGraphData();
-      
-      //Swtiches data to display
-      switch(dataToggle)
+        upperMenu.mainOptions();//Menu rendering
+        music.test();
+        
+        vitals.changeBPM();
+        change = 0;
+        break;
+      }//end case 0
+      case 1:
       {
-        case 0:
+        if (change == 0)
         {
-          statistic.Health();
-          break;
-        }//end case 0
-        case 1:
+          defaultSetup();//Default setup call
+          vitals.drawGraph();//Draws graph
+          change++;//Ensures that graph is drawn once
+        }//end if
+        
+        upperMenu.mainOptions();//Menu rendering
+        vitals.heartRate();//Heart rate render
+        break;
+      }//end HEALTH case
+      case 2:
+      {
+        defaultSetup();//Default setup call
+        upperMenu.mainOptions();//Menu rendering
+        homePage.radar();//Radar draw
+        homePage.checkStatus();//Radar draw
+        
+        change = 0;//Heart Rate check
+        vitals.changeBPM();
+        break;
+      }//end HOME case
+      case 3:
+      {
+        defaultSetup();//Default setup call
+        upperMenu.mainOptions();//Menu rendering
+        
+        //Draws data
+        struct.reactor();
+        
+        change = 0;//Heart Rate check
+        vitals.changeBPM();
+        break;
+      }//end case 3
+      case 4:
+      {
+        defaultSetup();//Default setup call
+        upperMenu.mainOptions();//Menu rendering
+        statistic.loadGraphData();
+        
+        //Swtiches data to display
+        switch(dataToggle)
         {
-          statistic.Engine();
-          break;
-        }//end case 0
-        case 2:
-        {
-          statistic.Fuel();
-          break;
-        }//end case 0
-        case 3:
-        {
-          statistic.Shields();
-          break;
-        }//end case 0
-        case 4:
-        {
-          statistic.Oxygen();
-          break;
-        }//end case 0
-        case 5:
-        {
-          statistic.Reactor();
-          break;
-        }//end case 0
-      }//end swtich dataToggle
-      
-      vitals.changeBPM();
-      change = 0;//Heart Rate check
-      break;
-    }
-    default:
-    {
-      defaultSetup();//Default setup call
-      upperMenu.mainOptions();//Menu render
-      
-      change = 0;//Heart Rate check
-    }//end default
+          case 0:
+          {
+            statistic.Health();
+            break;
+          }//end case 0
+          case 1:
+          {
+            statistic.Engine();
+            break;
+          }//end case 0
+          case 2:
+          {
+            statistic.Fuel();
+            break;
+          }//end case 0
+          case 3:
+          {
+            statistic.Shields();
+            break;
+          }//end case 0
+          case 4:
+          {
+            statistic.Oxygen();
+            break;
+          }//end case 0
+          case 5:
+          {
+            statistic.Reactor();
+            break;
+          }//end case 0
+        }//end swtich dataToggle
+        
+        vitals.changeBPM();
+        change = 0;//Heart Rate check
+        break;
+      }
+      default:
+      {
+        defaultSetup();//Default setup call
+        upperMenu.mainOptions();//Menu render
+        
+        change = 0;//Heart Rate check
+      }//end default
+    }//end switch
   }//end if
+  else
+  {
+    background(#121212);
+    layout.screenDraw();//Curved Screen draw method
+    frame.hudOutline();//Frame draw method
+    homePage.Welcome();
+  }//end else
 }//end draw
 
 /*

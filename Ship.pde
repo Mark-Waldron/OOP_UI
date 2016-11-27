@@ -193,7 +193,7 @@ class Ship
     {
       reactPer++;
     }//end if
-    if (((int)random(0, 4)) == 1 && (reactPer-1) >= 1.0f)
+    if (((int)random(0, 5)) == 1 && (reactPer-1) >= 1.0f)
     {
       reactPer--;
     }//end if

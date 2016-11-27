@@ -48,6 +48,10 @@ class DisplayData
     {
       text((int)i + "-",leftBorderX - map(2.0f, 0, finalx, 0, width), bottomBorderY - (((bottomBorderY - topBorderY) / 10.0f) * i));
     }//end for
+    
+    textAlign(CENTER, TOP);
+    textSize(map(25, 0, finalx + finaly, 0, width + height));
+    text("UP and DOWN keys to navigate", widthDiv, bottomBorderY + map(5, 0, finaly, 0, height));
   }//endloadGraphData
   
   void Health()
