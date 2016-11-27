@@ -97,14 +97,18 @@ float reactorR3 = 0.0f;
 //Home lerp index
 float homeIndex = 0;
 
+//Playing Song
+int playing = -1;
+float duration = 0;
+
 /*
   Initalises program and is called once throughout runtime
 */
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);

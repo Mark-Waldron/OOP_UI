@@ -186,7 +186,6 @@ class Ship extends Dimension
       reactPer--;
     }//end if
     
-    
     engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);

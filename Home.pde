@@ -14,7 +14,6 @@ class Home extends Dimension
   void radar()
   {
     float diameter = map(130.0f, 0, finalx + finaly, 0, width + height);
-    double distance = 22000000;
     color black = 0;
     float index = 0;
     noStroke();

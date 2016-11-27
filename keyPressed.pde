@@ -44,22 +44,25 @@ void keyPressed()
   
   if ((key == 'p' || key == 'P') && keyEntered == 0.0f)
   {
-    for (int i = 0; i < playlist.size(); i++)
+    if (playing > -1 || play == true)
     {
-      playlist.get(i).stop();
+      playlist.get(playing).stop();
     }//end if
     
-    playlist.get((int)radioToggle).play();
+    playing = (int)radioToggle;
+    Songs playPause = new Songs(playlist.get((int)radioToggle));
     play = true;
     theta = 0.0f;
   }//end if
   
   if (key == 's' || key == 'S')
   {
-    for (int i = 0; i < playlist.size(); i++)
+    if (play == true && playing > -1)
     {
-      playlist.get(i).stop();
-    }//end for
+      playlist.get(playing).stop();
+    }//end if
+    
+    playing = -1;
     play = false;
   }//end if
   

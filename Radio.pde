@@ -102,12 +102,17 @@ class Radio extends Dimension
       //line(alter, (heightDiv - panelDiff) - (gap * i), widthHalf, (heightDiv - panelDiff) - (gap * i));
     }//end fr
     
-    //Drawing of the select
+    //Drawing of the Sin Wave graph
     noFill();
     stroke(green);
 
     //line(alter, graphHeightDiv, widthDiv, graphHeightDiv);
     rect(alter, (heightDiv + panelDiff), widthDiv - alter, graphHeight);
+    
+    fill(green);
+    textSize(map(20, 0, finalx + finaly, 0, width + height));
+    textAlign(CENTER, TOP);
+    text("P to play S to stop",alter + ((widthDiv - alter) / 2.0f), (heightDiv + panelDiff) + graphHeight + map(3.0f, 0.0f , finaly, 0.0f, height));
     
     //Call to draw Sin Wave
     if (play == true)
