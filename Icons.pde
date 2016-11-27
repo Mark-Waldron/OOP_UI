@@ -1,3 +1,7 @@
+/*
+  CLASS IS NEVER USED WITH THE PROGRAM. 
+*/
+
 class Icons
 {
   void radio()

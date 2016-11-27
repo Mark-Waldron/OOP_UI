@@ -130,7 +130,6 @@ void setup()
   loadAverages();
   
   homePage.setUp();
-  //menuImages.radio();
   struct.statusSetup();
   struct.infoChange();
   vitals.defaultSetup();

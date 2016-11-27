@@ -164,6 +164,19 @@ class DisplayData
       float x2 = map(i, 0, data.size() - 1, leftBorderX, rightBorderX);
       float y2 = map(data.get(i).Reactor, 0, 100, bottomBorderY, topBorderY);
       line(x1, y1, x2, y2);
+      
+      if (i < (data.size() - 1))
+      {
+        float map = map(2, 0, finalx + finaly, 0, width + height);
+        noStroke();
+        stroke(green);
+        ellipse(x2, y2, map, map);
+      }//end if
     }//end for
   }//end Shields
+  
+  void alter()
+  {
+    
+  }//end 
 }//end CLASS DisplayData
