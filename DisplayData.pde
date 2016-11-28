@@ -33,15 +33,27 @@ class DisplayData extends Dimension
     line(leftBorderX, bottomBorderY, rightBorderX, bottomBorderY);
     line(leftBorderX, topBorderY, rightBorderX, topBorderY);
     
-    textSize(map(20, 0, finalx + finaly, 0, width + height));
     fill(green);
     textAlign(RIGHT, CENTER);
     
-    //Drawing of values against the frame
-    for (float i = 0.0; i <= 10.0f; i += 1.0f)
+    if (dataToggle == 0)
     {
-      text((int)i + "-",leftBorderX - map(2.0f, 0, finalx, 0, width), bottomBorderY - (((bottomBorderY - topBorderY) / 10.0f) * i));
-    }//end for
+      textSize(map(15, 0, finalx + finaly, 0, width + height));
+      //Drawing of values against the frame
+      for (float i = 0.0; i <= 15.0f; i += 1.0f)
+      {
+        text((int)i * 10 + "-",leftBorderX - map(2.0f, 0, finalx, 0, width), bottomBorderY - (((bottomBorderY - topBorderY) / 15.0f) * i));
+      }//end for
+    }//end if
+    else
+    {
+      textSize(map(20, 0, finalx + finaly, 0, width + height));
+      //Drawing of values against the frame
+      for (float i = 0.0; i <= 10.0f; i += 1.0f)
+      {
+        text((int)i * 10 + "-",leftBorderX - map(2.0f, 0, finalx, 0, width), bottomBorderY - (((bottomBorderY - topBorderY) / 10.0f) * i));
+      }//end for
+    }//end if
     
     //Printing of navigation information
     textAlign(CENTER, TOP);
