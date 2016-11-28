@@ -1,5 +1,6 @@
 class Ship extends Dimension
 { 
+  //Attributes
   float engine;
   float shields;
   float ox;
@@ -15,6 +16,9 @@ class Ship extends Dimension
   float arcSize;
   float arcDiff;
   
+  /*
+    Initialises data to the classes attributes
+  */
   void statusSetup()
   {
     super.setUp();
@@ -30,6 +34,7 @@ class Ship extends Dimension
     arcDiff = map(20.0f, 0, finalx + finaly, 0, width + height);
   }//end statusSetup()
   
+  //Drawing of the reactor animation and its bubble graph
   void reactor()
   {
     float outline = map(200.0f, 0.0f, finalx + finaly, 0.0f, width + height);
@@ -38,7 +43,8 @@ class Ship extends Dimension
     
     strokeWeight(2.0f);
     noStroke();
-
+    
+    //Push matrix to allow sketch rotation
     pushMatrix();
     translate(width / 2.0f, heightDiv);
     rotate(reactorR1);
@@ -47,9 +53,11 @@ class Ship extends Dimension
     arc(0, 0, arcSize, arcSize, -PI/2.0f, (-PI/2.0f) + (TWO_PI / 3.0f));
     fill(0);
     arc(0, 0, arcSize - arcDiff, arcSize - arcDiff, -PI/2.0f - diff, ((-PI/2.0f) + (TWO_PI / 3.0f)) + diff);
-
+    
+    //Pops Matrix to end sketch translations
     popMatrix();
-
+    
+    //Push matrix to allow translations and rotations
     pushMatrix();
     translate(width / 2.0f, heightDiv);
     rotate(reactorR2);
@@ -58,9 +66,11 @@ class Ship extends Dimension
     arc(0, 0, arcSize - arcDiff, arcSize - arcDiff, (-PI/2.0f) + (TWO_PI / 3.0f), (-PI/2.0f) + (TWO_PI / 3.0f) * 2.0f);
     fill(0);
     arc(0, 0, arcSize - arcDiff * 2.0f, arcSize - arcDiff * 2.0f, (-PI/2.0f) + (TWO_PI / 3.0f) - diff, (-PI/2.0f) + (TWO_PI / 3.0f) * 2.0f + diff);
-
+    
+    //Pops Matrix to end sketch translations
     popMatrix();
-
+    
+    //Push matrix to allow translations and rotations
     pushMatrix();
     translate(width / 2.0f, heightDiv);
     rotate(reactorR3);
@@ -69,7 +79,8 @@ class Ship extends Dimension
     arc(0, 0, arcSize - arcDiff * 2.0f, arcSize - arcDiff * 2.0f, (-PI/2.0f) + (TWO_PI / 3.0f) * 2.0f, (-PI/2.0f) + (TWO_PI / 3.0f) * 3.0f);
     fill(0);
     arc(0, 0, arcSize - arcDiff * 3.0f, arcSize - arcDiff * 3.0f, (-PI/2.0f) + (TWO_PI / 3.0f) * 2.0f - diff, (-PI/2.0f) + (TWO_PI / 3.0f) * 3.0f + diff);
-
+    
+    //Pops Matrix to end sketch translations
     popMatrix();
 
     fill(0);
@@ -77,6 +88,7 @@ class Ship extends Dimension
     strokeWeight(1.0f);
     ellipse(width / 2.0f, heightDiv, outline, outline);
     
+    //Drawing of ellipse to show the max of the bubble graph
     strokeWeight(lineSize);
     ellipse(width / 2.0f, heightDiv, diameter, diameter);
     
@@ -84,7 +96,7 @@ class Ship extends Dimension
     textAlign(CENTER, CENTER);
     textSize(map(140.0f, 0.0f, finalx + finaly, 0.0f, diameter));
     fill(green);
-    text("Recator Levels", width / 2.0f, heightDiv);
+    text("Reactor Levels", width / 2.0f, heightDiv);
     
     reactorR1 += 0.01f;
     reactorR2 -= 0.02f;
@@ -94,6 +106,9 @@ class Ship extends Dimension
     barChart();
   }//end reactor
   
+  /*
+    Drawing of graph
+  */
   void barChart()
   { 
     textAlign(LEFT, CENTER);
@@ -128,6 +143,7 @@ class Ship extends Dimension
     text("TEMP-", rightX, bottomY + (rectHeight - temp));
   }//end barChart()
   
+  //Changing the percentages of each statistic with algorithms
   void infoChange()
   { 
     float spike = random(1, 40);
@@ -186,12 +202,14 @@ class Ship extends Dimension
       reactPer--;
     }//end if
     
+    //Maps percentages to drawing values
     engine = map(map(enginePer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     shields = map(map(shieldsPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     ox = map(map(oxPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     temp = map(map(tempPer, 0, 100f, 0, 125f), 0, finaly, 0, height);
     reactor = map(reactPer, 0.0f,100.0f, 100.0f, 200.0f);
     
+    //Calculates averages
     engineAverage = (engineAverage + enginePer) / 2.0f;
     shieldAverage = (shieldAverage + shieldsPer) / 2.0f;
     oxyAverage = (oxyAverage + oxPer) / 2.0f;

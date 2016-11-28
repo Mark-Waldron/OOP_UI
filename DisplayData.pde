@@ -1,5 +1,6 @@
 class DisplayData extends Dimension
 { 
+  //Attributes
   float leftBorder;
   float heightBorder;
   
@@ -9,11 +10,13 @@ class DisplayData extends Dimension
   float topBorderY; 
   float bottomBorderY; 
   
+  //Loads all data for the graph and draws the frame
   void loadGraphData()
   {
     float borderX = map(50, 0, finalx, 0, width);
     float borderY = map(50, 0, finaly, 0, height);
     
+    //Call to superclass method
     super.setUp();
     
     this.leftBorderX = w1 + borderX;
@@ -24,6 +27,7 @@ class DisplayData extends Dimension
     
     stroke(green);
     
+    //Drawing of frame
     line(leftBorderX, topBorderY, leftBorderX, bottomBorderY);
     line(rightBorderX, topBorderY, rightBorderX, bottomBorderY);
     line(leftBorderX, bottomBorderY, rightBorderX, bottomBorderY);
@@ -32,11 +36,14 @@ class DisplayData extends Dimension
     textSize(map(20, 0, finalx + finaly, 0, width + height));
     fill(green);
     textAlign(RIGHT, CENTER);
+    
+    //Drawing of values against the frame
     for (float i = 0.0; i <= 10.0f; i += 1.0f)
     {
       text((int)i + "-",leftBorderX - map(2.0f, 0, finalx, 0, width), bottomBorderY - (((bottomBorderY - topBorderY) / 10.0f) * i));
     }//end for
     
+    //Printing of navigation information
     textAlign(CENTER, TOP);
     textSize(map(25, 0, finalx + finaly, 0, width + height));
     text("UP and DOWN keys to navigate", widthDiv, bottomBorderY + map(5, 0, finaly, 0, height));

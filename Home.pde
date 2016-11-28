@@ -112,7 +112,7 @@ class Home extends Dimension
       textAlign(CENTER, TOP);
       textSize(map(30, 0, finalx + finaly, 0, width + height));
       text(files[playing].substring(0, files[playing].length() - 4), width / 2.0f, heightDiv + map(20.0f, 0, finaly, 0, height));
-    }
+    }//end play check
   }//end checkStatus()
   
   /*

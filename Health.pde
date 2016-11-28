@@ -4,6 +4,7 @@ class Health
   ArrayList<Float> coY = new ArrayList<Float>();
   ArrayList<Float> bigCoY = new ArrayList<Float>();
   
+  //Declaring of attributes
   float widthEnd;
   float h;
   float row;
@@ -25,6 +26,7 @@ class Health
   
   int BPM;
   
+  //Setup for the class
   void defaultSetup()
   {
     this.widthEnd = map(592.5f, 0, finalx, 0, width);
@@ -39,6 +41,7 @@ class Health
     this.centreSpike = map(380, 0, finalx, widthHalf, widthEnd);
   }//end defaultSetup()
   
+  //Initialising values for graph
   void setupRate()
   {
     this.BPM = (int)random(70, 120);
@@ -52,6 +55,7 @@ class Health
     this.index = 0;
     this.index2 = 0;
     
+    //Clearing of data in an array list
     coY.clear();
     bigCoY.clear();
     
@@ -75,6 +79,7 @@ class Health
     Method to draw the heart rate monitor's backrgound
   */
   
+  //Drawing of graph frame
   void drawGraph()
   {
     float ten = row;
@@ -95,6 +100,7 @@ class Health
     textSize(map(10.0f, 0, finalx + finaly, 0, width + height));
     text(rangeNum + "-", width / 2.0f, h);
     
+    //Loop to draw each row in the graph
     for (float i = 0; i < 6.0f; i+=1.0f)
     {
       line(width / 2.0f, h - (ten * i), widthEnd, h - (ten * i));
@@ -127,6 +133,10 @@ class Health
     //line(0, graphUp, width, graphUp);
     //line(0, graphUp + diff * 2.0f, width, graphUp + diff * 2.0f);
     
+    /*
+      If statements which control the heart rate lines position 
+      at certain points of the graph
+    */
     if (graphCount >= minor && graphCount < spikeRange && index + 1 < coY.size())
     {
       line(graphCount, h - coY.get(index), graphCount + speed, h - coY.get(index + 1));
@@ -160,6 +170,7 @@ class Health
       line(graphCount, h, graphCount + speed, h);
     }
     
+    //Resets the graph
     if ((graphCount + speed * 3.0f) > widthEnd)
     {
       graphCount = widthHalf;
@@ -168,6 +179,7 @@ class Health
     }//end if
   }//end heartRate()
   
+  //Prints a BPM to the user
   void printBPM(int BPM)
   {
     fill(green);
@@ -178,6 +190,7 @@ class Health
     text(BPM, widthHalf - map(40, 0, finalx, 0, width), h + (diff / 5.0f) * 2.0f);
   }//end printBPM
   
+  //Changes the BMP
   void changeBPM()
   {
     healthAverage = (healthAverage + (int)random(70, 120)) / 2;

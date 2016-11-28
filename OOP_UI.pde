@@ -119,10 +119,12 @@ void setup()
   smooth();
   //noCursor();
   
+  //Takes System date
   Date date = new Date();
   SimpleDateFormat sdf = new SimpleDateFormat("EEE, MMM dd HH:mm:ss z yyyy");
   dateString = sdf.format(date);
   
+  //Loading of images and setting dimensions
   jfk = loadImage("JFK_white.png");
   jfkWidth = map(jfk.width, 0, myWidth, 0, width);
   jfkHeight = map(jfk.height, 0, myHeight, 0, height);
@@ -136,6 +138,7 @@ void setup()
   loadFile();
   loadAverages();
   
+  //Loading of setup of methods within classes
   homePage.setUp();
   struct.statusSetup();
   struct.infoChange();
@@ -152,6 +155,7 @@ void draw()
   //Default removal of fill and the cursor
   noFill();
   
+  //Checks if a song is playing
   if (playing > -1)
   {
     if (frameCount > playTime)
@@ -169,12 +173,14 @@ void draw()
     struct.infoChange();
   }//end barChart()
   
+  //Loads Percentages into an array
   dataPerArray[0] = enginePer;
   dataPerArray[1] = shieldsPer;
   dataPerArray[2] = oxPer;
   dataPerArray[3] = tempPer;
   dataPerArray[4] = reactPer;
 
+  //Checks if 7 seconds have passed
   if (frameCount > 420)
   {
     //Swtich statement to change menu options
@@ -283,6 +289,7 @@ void draw()
   }//end if
   else
   {
+    //Drawing of welcome screen
     background(#121212);
     layout.screenDraw();//Curved Screen draw method
     layout.frame.hudOutline();//Frame draw method

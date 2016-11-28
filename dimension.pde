@@ -1,3 +1,4 @@
+//Super class that will initialise screen dimension values
 class Dimension
 {
   float w1;

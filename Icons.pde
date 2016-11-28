@@ -1,9 +1,8 @@
-/*
-  CLASS IS NEVER USED WITH THE PROGRAM. 
-*/
-
 class Icons
 {
+  /*
+    Method that draws a radio icon with the user of a PShape
+  */
   void radioDraw()
   {
     fill(green);

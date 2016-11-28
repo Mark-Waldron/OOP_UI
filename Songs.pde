@@ -2,6 +2,8 @@ class Songs
 {
   SoundFile song;
   
+  //Contrustor that plays a song that is passed
+  //and calculates its duration
   Songs(SoundFile song)
   {
     this.song = song;
@@ -10,6 +12,7 @@ class Songs
     duration = this.song.duration();
   }//end constructor
   
+  //Stops song
   void stop()
   {
     song.stop();

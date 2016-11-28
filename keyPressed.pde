@@ -4,6 +4,7 @@
 
 void keyPressed()
 {
+  //Main menu toggle checks
   if (keyCode == ENTER)
   {
     keyEntered = keyCount;
@@ -25,6 +26,7 @@ void keyPressed()
     keyCount -= 1.0f;
   }//end if
   
+  //Checks if the UP or DOWN is pressed on the radio menu
   if (keyCode == UP && keyEntered == 0.0f)
   {
     radioToggle += 1.0f;
@@ -42,6 +44,7 @@ void keyPressed()
     radioToggle -= 1.0f;
   }//end if
   
+  //Plays selected song 
   if ((key == 'p' || key == 'P') && keyEntered == 0.0f)
   {
     if (playing > -1 || play == true)
@@ -56,6 +59,7 @@ void keyPressed()
     theta = 0.0f;
   }//end if
   
+  //Stops current song
   if (key == 's' || key == 'S')
   {
     if (play == true && playing > -1)
@@ -67,6 +71,7 @@ void keyPressed()
     play = false;
   }//end if
   
+  //Changes graph data being shown
   if (keyCode == UP && keyEntered == 4.0f)
   {
     if (dataToggle == 0)
@@ -79,6 +84,7 @@ void keyPressed()
     }
   }//end if
   
+  //Changes graph data being shown
   if (keyCode == DOWN && keyEntered == 4.0f)
   {
     if (dataToggle == 5)
@@ -91,6 +97,7 @@ void keyPressed()
     }//end else
   }//end if
   
+  //Exit condition that saves all current data to a csv file
   if (key == 'z' || key == 'Z')
   {
     TableRow newRow = t.addRow();

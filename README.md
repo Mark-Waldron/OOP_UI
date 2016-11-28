@@ -30,3 +30,27 @@ The UI has five features.
 * ENTER to change page
 * S to play song
 * P to stop song
+
+#Functionality
+
+The sketch uses a switch based menu to to go between different menu options. The keyPressed function checks all user input and perfoms appropriate actions depending what page the user is on. If required, some pages classes share a super class that draw hosts the dimenions of the UI's screen.
+
+* Home
+  * The home page uses pushMatrix and popMatrix to draw the radar scope. To display the statistical data, a method calls upon string format library methods to display percentage values to the user. The radio icon is a PShape drawn which is only shown when a song is playing. This is achieved through boolean flag checks.
+  
+* Health
+  * The Health page uses trigometric functions to create a unique heart rate animation on each iteration. The average BPM is calculated throughout the running of the prgram.
+
+* Radio
+  * The radio contains a sub menu of which consists of 4 songs. The UP and DOWN keys allow a user to navigate through each song. Once a user hits P whilst hovering over a song, the keyPressed method will utilising the SoundFile class and play the song file via the Song Class. Whilist a song is playing, a Sin Wave is generated to give an effect using trigometric algorithms.
+
+* Ship Status
+  * Data of the ship represented in bar charts and bubble graphs. All text is scaled appropriately using mapping functions.
+
+* Data Display
+  * Displays data by taking all data loaded from file and displays it via a line graph
+  
+#Key Concepts
+The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
+
+Polymorphism is found within the the Home class when the checkStatus method creates an Icons object to draw the radio PShape. This was to reduce the calling of objects.

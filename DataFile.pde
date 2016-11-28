@@ -1,5 +1,6 @@
 class DataFile
 {
+  //Every piece of data within the CSV
   float Log;
   String Date;
   int Health;
@@ -9,6 +10,7 @@ class DataFile
   float Oxygen;
   float Reactor;
   
+  //Constructor that loads a data object
   DataFile(TableRow row)
   {
     this.Log = row.getInt("Log");
