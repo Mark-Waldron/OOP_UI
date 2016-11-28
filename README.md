@@ -51,4 +51,10 @@ The sketch uses a switch based menu to to go between different menu options. The
   * Displays data by taking all data loaded from file and displays it via a line graph
   
 #Key Concepts
-The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
+* The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
+
+* The pragram uses file input and ouput to track the data from yeach user visit. The Table class hosts file I/O.
+
+* The spike lines in the heart rate monitor are calculated via trigonometric methods.
+
+* SoundFiles are stored in an array list.
