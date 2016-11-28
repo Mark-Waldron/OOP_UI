@@ -6,7 +6,7 @@ class Icons
   void radioDraw()
   {
     fill(green);
-    float sLength = 50.0f;
+    float sLength = 10.0f;
     float angleLine = (sLength * sin(PI / 4.0f));
     noStroke();
 

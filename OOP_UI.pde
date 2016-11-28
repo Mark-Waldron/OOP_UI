@@ -158,6 +158,9 @@ void draw()
   //Checks if a song is playing
   if (playing > -1)
   {
+    Icons sound = new Icons();
+    sound.radioDraw();
+    shape(radio, width * .39, height * .089f);
     if (frameCount > playTime)
     {
       play = false;

@@ -74,25 +74,25 @@ void keyPressed()
   //Check for all values
   if ((key == 'r' || key == 'R') && keyEntered == 2.0f && enginePer < 30)
   {
-    enginePer = 80.0f;
+    enginePer = random(30, 70);
   }//end if
   //Stops current song
   if ((key == 'r' || key == 'R') && keyEntered == 2.0f && shieldsPer < 30)
   {
-    shieldsPer = 80.0f;
+    shieldsPer = random(30, 70);
   }//end if
   if ((key == 'r' || key == 'R') && keyEntered == 2.0f && tempPer < 30)
   {
-    tempPer = 80.0f;
+    tempPer = random(30, 70);
   }//end if
   //Stops current song
   if ((key == 'r' || key == 'R') && keyEntered == 2.0f && oxPer < 30)
   {
-    oxPer = 80.0f;
+    oxPer = random(30, 70);
   }//end if
   if ((key == 'r' || key == 'R') && keyEntered == 2.0f && reactPer < 30)
   {
-    reactPer = 80.0f;
+    reactPer = random(30, 70);
   }//end if
   
   

@@ -43,5 +43,13 @@ class Outline
     arc(width / 2.0f, height * 0.163, topx, topy, (PI / 180.0f) * 51.7f, (PI / 180.0f) * 128.3);
     line(width * 0.58f + divide_w * 2.0f, h, width * 0.58f + divide_w * 2.0f, h + diff);
     line(width * 0.42f - divide_w * 2.0f, h, width * 0.42f - divide_w * 2.0f, h + diff);
+    
+    //Checks if a song is playing
+    if (playing > -1)
+    {
+      Icons sound = new Icons();
+      sound.radioDraw();
+      shape(radio, width * .39, height * .089f);
+    }//end if
   }//end hudOutline()
 }//end CLASS Outline
