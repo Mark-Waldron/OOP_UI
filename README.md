@@ -52,5 +52,3 @@ The sketch uses a switch based menu to to go between different menu options. The
   
 #Key Concepts
 The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
-
-Polymorphism is found within the the Home class when the checkStatus method creates an Icons object to draw the radio PShape. This was to reduce the calling of objects.
