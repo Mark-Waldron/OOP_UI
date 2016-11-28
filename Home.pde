@@ -67,6 +67,8 @@ class Home extends Dimension
   {
     float rowDiff = (height / 15.0f);
     int nameCount = 0;
+    boolean warning = false;
+    
     fill(green);
     textAlign(LEFT, CENTER);
     textSize(map(20, 0, finalx + finaly, 0, width + height));
@@ -95,6 +97,8 @@ class Home extends Dimension
         fill(0);
         text(dataNames[nameCount] + ":" + formatted + "%", w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * i), width / 4.0f, height / 15.0f);
         nameCount++;
+        
+        warning = true;
       }//end else
     }//end for
     
@@ -103,6 +107,14 @@ class Home extends Dimension
     fill(green);
     text("Ship Status", w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * -3.0f), width / 4.0f, height / 15.0f);
     
+    if (warning == true)
+    {
+      fill(green);
+      textAlign(CENTER, CENTER);
+      text("Warning: Press R ro Restore", widthDiv, heightDiv);
+    }//end if
+    
+    /*
     if (play == true)
     {
       Icons sound = new Icons();
@@ -112,7 +124,9 @@ class Home extends Dimension
       textAlign(CENTER, TOP);
       textSize(map(30, 0, finalx + finaly, 0, width + height));
       text(files[playing].substring(0, files[playing].length() - 4), width / 2.0f, heightDiv + map(20.0f, 0, finaly, 0, height));
-    }//end play check
+    }//end if
+    
+    */
   }//end checkStatus()
   
   /*

@@ -71,6 +71,32 @@ void keyPressed()
     play = false;
   }//end if
   
+  //Check for all values
+  if ((key == 'r' || key == 'R') && keyEntered == 2.0f && enginePer < 30)
+  {
+    enginePer = 80.0f;
+  }//end if
+  //Stops current song
+  if ((key == 'r' || key == 'R') && keyEntered == 2.0f && shieldsPer < 30)
+  {
+    shieldsPer = 80.0f;
+  }//end if
+  if ((key == 'r' || key == 'R') && keyEntered == 2.0f && tempPer < 30)
+  {
+    tempPer = 80.0f;
+  }//end if
+  //Stops current song
+  if ((key == 'r' || key == 'R') && keyEntered == 2.0f && oxPer < 30)
+  {
+    oxPer = 80.0f;
+  }//end if
+  if ((key == 'r' || key == 'R') && keyEntered == 2.0f && reactPer < 30)
+  {
+    reactPer = 80.0f;
+  }//end if
+  
+  
+  
   //Changes graph data being shown
   if (keyCode == UP && keyEntered == 4.0f)
   {
