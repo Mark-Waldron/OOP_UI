@@ -3,7 +3,7 @@ The following is a build of the OOP module assignment
 
 #YouTube Video
 
-[![Video](http://img.youtube.com/vi/Za1BAYiGklE.jpg)](http://www.youtube.com/watch?v=Za1BAYiGklE)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Za1BAYiGklE/0.jpg)](https://www.youtube.com/watch?v=Za1BAYiGklE)
 
 # Concept
 When given the assignment brief which explained to a student to create a Sci-Fi UI. I briefly pondered through various different ideas. One that stood out was to recreate the Pit Boy from the game series Fallout. However, I became aware that many other students were attempting to recreate the Pit Boy as well. I then came to the conclusion where if I was to be unqiue, I would have to create my own UI. 
