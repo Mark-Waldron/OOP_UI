@@ -127,7 +127,7 @@ void setup()
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
   smooth();
-  //noCursor();
+  noCursor();
   
   //Sets radar points to zero
   for(int i = 0; i < 40; i++)
