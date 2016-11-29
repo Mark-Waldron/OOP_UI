@@ -53,23 +53,6 @@ The sketch uses a switch based menu to to go between different menu options. The
 
 * Data Display
   * Displays data by taking all data loaded from file and displays it via a line graph
-  
-#Key Notes
-* The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
-
-* The pragram uses file input and ouput to track the data from yeach user visit. The Table class hosts file I/O.
-
-* The spike lines in the heart rate monitor are calculated via trigonometric methods.
-
-* SoundFile objects are stored in an array list.  (Polymorphism)
-
-* Radar scope generates random black nodes within its diameter.
-
-* The curved screen effect is achieved with arcs that are rotated.
-
-* Date and time are calculated and outputed in a form of a gradiant curve that matches the curve of the screen.
-
-* Sound files are timed to end when required.
 
 #Running of the Program
 
@@ -93,3 +76,19 @@ The Ship page provides a visual representations of data being calculated. The pa
 
 The Data page displays the averages of every statistic from each visit to a user with the use of a line graph. With use of the UP and DOWN keys, a user can toggle through each statistic. When the program is exited, the current averages are added to the table object that loaded from the data file and they table and its contents overwrite the data file. Therefore, each time a user runs the program, the data that is loaded is unique each time for an extra row is added.
 
+#Key Notes
+* The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
+
+* The pragram uses file input and ouput to track the data from yeach user visit. The Table class hosts file I/O.
+
+* The spike lines in the heart rate monitor are calculated via trigonometric methods.
+
+* SoundFile objects are stored in an array list.  (Polymorphism)
+
+* Radar scope generates random black nodes within its diameter.
+
+* The curved screen effect is achieved with arcs that are rotated.
+
+* Date and time are calculated and outputed in a form of a gradiant curve that matches the curve of the screen.
+
+* Sound files are timed to end when required.
