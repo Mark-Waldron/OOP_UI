@@ -3,7 +3,7 @@ The following is a build of the OOP module assignment
 
 #YouTube Video
 
-[![Video](http://img.youtube.com/vi/Za1BAYiGklE&ab_channel=theworldsmania/0.jpg)](http://www.youtube.com/watch?v=Za1BAYiGklE&ab_channel=theworldsmania)
+[![Video](http://img.youtube.com/vi/Za1BAYiGklE&ab.jpg)](http://www.youtube.com/watch?v=Za1BAYiGklE&ab_channel=theworldsmania)
 
 # Concept
 When given the assignment brief which explained to a student to create a Sci-Fi UI. I briefly pondered through various different ideas. One that stood out was to recreate the Pit Boy from the game series Fallout. However, I became aware that many other students were attempting to recreate the Pit Boy as well. I then came to the conclusion where if I was to be unqiue, I would have to create my own UI. 
@@ -87,4 +87,9 @@ The radio section of the UI displays a basic list of songs to a user as to which
 
 * Ship
 
-The Ship page provides a visual representations of data being calculated. The page contains 4 bar chars for Engine, Shields, Temperature and Oxygen. A bubble graph is also found within the page to display the percentage value of the reactor. 
+The Ship page provides a visual representations of data being calculated. The page contains 4 bar chars for Engine, Shields, Temperature and Oxygen. A bubble graph is also found within the page to display the percentage value of the reactor. The text "Reactor Levels", is mapped to the size of the reactor bubble.
+
+* Data
+
+The Data page displays the averages of every statistic from each visit to a user with the use of a line graph. With use of the UP and DOWN keys, a user can toggle through each statistic. When the program is exited, the current averages are added to the table object that loaded from the data file and they table and its contents overwrite the data file. Therefore, each time a user runs the program, the data that is loaded is unique each time for an extra row is added.
+
