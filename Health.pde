@@ -45,22 +45,31 @@ class Health
   void setupRate()
   {
     this.BPM = (int)random(70, 120);
+    
+    //Height of smalle spike
     this.angleHeight = map(random(40, 45), 0.0f, 150.0f, graphUp, graphUp + diff);
+    
+    //Angle of smalle spike
     this.at = atan((angleHeight - graphUp)/(spikeRange - minor));
     
+    //Height of big spike
     this.angleHeight2 = map((float)BPM, 0.0f, 150.0f, graphUp, graphUp + diff);
   
+    //Angle of big spike
     this.bigAT = atan((angleHeight2 - graphUp)/(centreSpike - majorDiv));
     
+    //Counters for when range is met for spikes
     this.index = 0;
     this.index2 = 0;
     
     //Clearing of data in an array list
     coY.clear();
     bigCoY.clear();
-    
+   
+    //Adds to average
     healthAverage = (healthAverage + BPM) / 2;
     
+    //Gets co-ordinates of spike
     for (float i = 0; i <= (spikeRange - minor) + 1; i += 1.0f)
     {
       coY.add(i * tan(at));
@@ -69,6 +78,7 @@ class Health
       //line(0, h - sinY[(int)i], width, h - sinY[(int)i]);
     }//end for
     
+    //Gets co-ordinates of spike
     for (float i = 0; i <= (centreSpike - majorDiv) + 1; i += 1.0f)
     {
       bigCoY.add(i * tan(bigAT));
@@ -110,6 +120,14 @@ class Health
       rangeNum += 30;
     }//end for
     
+    //Print of last BPM average
+    fill(green);
+    textAlign(CENTER, TOP);
+    textSize(map(19, 0, finalx + finaly, 0, width + height));
+    text("Last BPM average:" + data.get(data.size() - 1).Health, (width / 2.0f) + (widthEnd - (width / 2.0f)) / 2.0f
+    , h + (ten * 5) + map(5.0f, 0, finaly, 0, height));
+    
+    //Left and right border lines
     line(width / 2.0f, h - (ten * 5.0f), width / 2.0f, h + (ten * 5.0f));
     line(widthEnd, h - (ten * 5.0f), widthEnd, h + (ten * 5.0f));
   }//end METHOD drawGraph()

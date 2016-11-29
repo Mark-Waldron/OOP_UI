@@ -58,3 +58,5 @@ The sketch uses a switch based menu to to go between different menu options. The
 * The spike lines in the heart rate monitor are calculated via trigonometric methods.
 
 * SoundFiles are stored in an array list.
+
+* Program

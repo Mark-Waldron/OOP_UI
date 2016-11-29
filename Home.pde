@@ -50,6 +50,42 @@ class Home extends Dimension
     
     popMatrix();
     
+    //Check to ensure radar points are changed when radar
+    //arc passes the area
+    if (count < PI && astCheck == 0)
+    {
+      //Prevents check from preforming again until arc leaves area
+      astCheck = 1;
+      
+      //Loop to set values of the array
+      for(int i = 0; i < 20; i++)
+      {
+        astLocation[0][i] = random(PI, TWO_PI);
+        astLocation[1][i] =  random(0, (diameter / 2.0f) - 1);
+      }//end for
+    }//end if
+    else if (count >= PI && astCheck == 1)
+    {
+      //Prevents check from preforming again until arc leaves area
+      astCheck = 0;
+      
+      //Loop to set values of the array
+      for(int i = 20; i < 40; i++)
+      {
+        stroke(0);
+        fill(0);
+        astLocation[0][i] = random(0, PI);
+        astLocation[1][i] =  random(0, (diameter / 2.0f) - 1);
+      }//end for
+    }//end else if
+    
+    //Sketches points on radar scope
+    for(int i = 0; i < 40; i++)
+    {
+      stroke(0);
+      point(width * .85 + astLocation[1][i] * cos(astLocation[0][i]), height * .75f + astLocation[1][i] * sin(astLocation[0][i]));
+    }//end for
+    
     count += TWO_PI / 360.0f;
     
     //Ensures the radar counter is rest
@@ -85,8 +121,10 @@ class Home extends Dimension
         stroke(0);
         fill(0);
         rect(w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * i), width / 4.0f, height / 15.0f);
+        
         fill(green);
         text(dataNames[nameCount] + ":" + formatted + "%", w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * i), width / 4.0f, height / 15.0f);
+        
         nameCount++;
       }//end if
       else
@@ -96,10 +134,13 @@ class Home extends Dimension
         rect(w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * i), width / 4.0f, height / 15.0f);
         fill(0);
         text(dataNames[nameCount] + ":" + formatted + "%", w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * i), width / 4.0f, height / 15.0f);
-        nameCount++;
+        
+        //Warning display
         fill(green);
         textAlign(CENTER, CENTER);
-        text("Warning:Press R to Restore", widthDiv + map(20, 0, finalx, 0, width), heightDiv + (rowDiff * i));
+        text("Warning:Press " + charReset[nameCount] + " to Restore", widthDiv + map(20, 0, finalx, 0, width), heightDiv + (rowDiff * i));
+        
+        nameCount++;
       }//end else
     }//end for
     
@@ -107,7 +148,6 @@ class Home extends Dimension
     textAlign(CENTER, CENTER);
     fill(green);
     text("Ship Status", w1 + map(15.0f, 0, finalx, 0, width), heightDiv - (rowDiff / 2.0f) + (rowDiff * -3.0f), width / 4.0f, height / 15.0f);
-    
     
     if (play == true)
     {
@@ -149,6 +189,7 @@ class Home extends Dimension
     textSize(map(29, 0, finalx + finaly, 0, width + height));
     
     text("Use the LEFT and RIGHT Keys to navigate", widthDiv, heightDiv - (heightDiv / 3.0f));
+    text("Use ENTER to choose Menu option", widthDiv, ((heightDiv + (heightDiv / 3.0f)) + (heightDiv - (heightDiv / 3.0f))) / 2.0f);
     text("Press the Z Key to exit", widthDiv, heightDiv + (heightDiv / 3.0f));
   }//end Welcome
 }//end class

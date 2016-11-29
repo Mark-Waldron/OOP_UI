@@ -5,10 +5,18 @@ import java.text.SimpleDateFormat;
 
 //Arraylist to host the sound files
 ArrayList<SoundFile> playlist = new ArrayList<SoundFile>();
+//Arraylist to store the data from file
 ArrayList<DataFile> data = new ArrayList<DataFile>();
+//String array that hosts song names
 String files[] = {"HoundDog.mp3", "Fire.mp3", "Care.mp3", "Gypsy.mp3"};
+//Names of the data
 String dataNames[] = {"Engine", "Shields", "Oxygen","Temperature", "Reactor"};
+//Array to host percentages
 float dataPerArray[] = new float[5];
+//Astroid locations
+float astLocation[][] = new float[2][40];
+//Char array of resests
+char charReset[] = {'Q', 'W', 'E', 'R', 'T'};
 
 /*
   Creation of objects 
@@ -102,6 +110,8 @@ int playing = -1;
 float duration = 0;
 float playTime;
 
+int astCheck = 0;
+
 //Song Object
 Songs playPause;
 
@@ -111,13 +121,20 @@ Songs playPause;
 
 void setup()
 {
-  //size(750, 500);
-  fullScreen();
+  size(750, 500);
+  //fullScreen();
   frameRate(60);
   mono = loadFont("monospaced.plain-48.vlw");
   textFont(mono);
   smooth();
   //noCursor();
+  
+  //Sets radar points to zero
+  for(int i = 0; i < 40; i++)
+  {
+    astLocation[1][i] = 0.0f;
+    astLocation[1][i] = 0.0f;
+  }//end for
   
   //Takes System date
   Date date = new Date();
