@@ -75,7 +75,7 @@ class Home extends Dimension
         stroke(0);
         fill(0);
         astLocation[0][i] = random(0, PI);
-        astLocation[1][i] =  random(0, (diameter / 2.0f) - 1);
+        astLocation[1][i] =  random(0, (diameter / 2.0f) - map(1, 0, finalx + finaly, 0, width + height));
       }//end for
     }//end else if
     
