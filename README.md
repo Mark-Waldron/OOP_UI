@@ -1,6 +1,10 @@
 # OOP_UI
 The following is a build of the OOP module assignment
 
+#YouTube Video
+
+[![Video](http://img.youtube.com/vi/Za1BAYiGklE&ab_channel=theworldsmania/0.jpg)](http://www.youtube.com/watch?v=Za1BAYiGklE&ab_channel=theworldsmania)
+
 # Concept
 When given the assignment brief which explained to a student to create a Sci-Fi UI. I briefly pondered through various different ideas. One that stood out was to recreate the Pit Boy from the game series Fallout. However, I became aware that many other students were attempting to recreate the Pit Boy as well. I then came to the conclusion where if I was to be unqiue, I would have to create my own UI. 
 
@@ -50,13 +54,37 @@ The sketch uses a switch based menu to to go between different menu options. The
 * Data Display
   * Displays data by taking all data loaded from file and displays it via a line graph
   
-#Key Concepts
+#Key Notes
 * The program contains Inheritance for many classes are an extention of the Dimension class. This was to reduce the amount of code in the project.
 
 * The pragram uses file input and ouput to track the data from yeach user visit. The Table class hosts file I/O.
 
 * The spike lines in the heart rate monitor are calculated via trigonometric methods.
 
-* SoundFiles are stored in an array list.
+* SoundFile objects are stored in an array list.  (Polymorphism)
 
-* Program
+* Radar scope generates random black nodes within its diameter.
+
+* The curved screen effect is achieved with arcs that are rotated.
+
+* Date and time are calculated and outputed in a form of a gradiant curve that matches the curve of the screen.
+
+* Sound files are timed to end when required.
+
+#Running of the Program
+
+* Home
+
+When a user runs the sketch, the program begins with a "Welcome Message", this message provides a user basic instructions on how to run the program by listing the primary keys. After the startup, the user is placed on the Home page. Home contains a information regarding the ships structure status and provides a radar scope. If a piece of data falls below a certain percentage, the user is opted to restore that value in an emergancy reboot. As previously mentioned, a radar scope is also provided, this radar scope allows a user to view what is around ship.
+
+* Health
+
+If a user moves to the Health page, they are shown a heart rate monitor styled graph to highlight their current BPM. The heart rate monitor uses trigometric methods within the default libraries to calculate the angle and the y co-ordinates uses to draw the BPM to the graph. The page shall also print to the user their BPM via text next to the heart rate monitor. 
+
+* Radio / Jack
+
+The radio section of the UI displays a basic list of songs to a user as to which songs to play. A user is given a list of 4 songs. If a user hits the 'p' key, a chosen song shall play whilist 's' stops the song. To scroll through the songs, a user utilises the arrow keys. When a song is played, a Sine Wave graph is displayed. The graphs amplitutde is randomised and changed after a certain number of frames passes to give is a slow animation effect. Next to the radio play is a loaded image of JFK that utilises methods from the image class to display the image to slace and to change the outputted colour values
+
+* Ship
+
+The Ship page provides a visual representations of data being calculated. The page contains 4 bar chars for Engine, Shields, Temperature and Oxygen. A bubble graph is also found within the page to display the percentage value of the reactor. 
