@@ -92,3 +92,5 @@ The Data page displays the averages of every statistic from each visit to a user
 * Date and time are calculated and outputed in a form of a gradiant curve that matches the curve of the screen.
 
 * Sound files are timed to end when required.
+
+* The sketch is mapped to all sizes
