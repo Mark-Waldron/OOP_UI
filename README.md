@@ -1,4 +1,4 @@
-# OOP_UI
+# DAWN UI
 The following is a build of the OOP module assignment
 
 #YouTube Video
@@ -12,7 +12,7 @@ The UI is based upon the idea of the Cold War eventually escalating to full out 
 
 The UI created is an engineer UI. This provides an engineer on board statistical information of the ship and its state while also tracking the BPM of said engineer. Humans in space was a new reality in this era so the tracking of one’s health at this time was conceived to be imperative.  
 
-#Features
+# Features
 The UI has five features.
 
 * Home Page
