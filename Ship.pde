@@ -146,49 +146,38 @@ class Ship extends Dimension
   //Changing the percentages of each statistic with algorithms
   void infoChange()
   { 
-    float spike = random(1, 40);
-    if (frameCount % 30 == 0 && enginePer != 100)
+    if (((int)random(0, 2)) == 1 && (enginePer-1) > 0)
     {
-      enginePer += (int)random(1,3);
+      enginePer--;
     }//end if
-    else if (frameCount % 100 == 0 && (enginePer + spike) <= 100)
+    if (((int)random(0, 3)) == 1 && (enginePer+1) <= 100.0f)
     {
-      enginePer += spike;
-    }
-    else if (frameCount % 2 == 0 && (enginePer) >= 1)
-    {
-      enginePer -= (int)random(1,3);
-    }
-    
-    spike = random(1, 40);
-    
-    if (frameCount % 30 == 0 && shieldsPer != 100)
-    {
-      shieldsPer += (int)random(1,3);
+      enginePer++;
     }//end if
-    else if (frameCount % 100 == 0 && (shieldsPer + spike) <= 100)
-    {
-      shieldsPer += spike;
-    }
-    else if (frameCount % 2 == 0 && (shieldsPer) >= 1)
-    {
-      shieldsPer -= (int)random(1,3);
-    }
     
-    if (((int)random(0, 4)) == 1 && (oxPer-1) >= 0)
+    if (((int)random(0, 2)) == 1 && (shieldsPer-1) > 0)
     {
-      oxPer--;
+      shieldsPer--;
     }//end if
-    if (((int)random(0, 3)) == 1 && (oxPer+1) <= 100.0f)
+    if (((int)random(0, 3)) == 1 && (shieldsPer+1) <= 100.0f)
+    {
+      shieldsPer++;
+    }//end if
+    
+    if (((int)random(0, 4)) == 1 && (oxPer+1) <= 100.0f)
     {
       oxPer++;
+    }//end if
+    if (((int)random(0, 3)) == 1 && (oxPer-1) > 0)
+    {
+      oxPer--;
     }//end if
     
     if (((int)random(0, 18)) == 1 && (tempPer+1) <= 100.0f)
     {
       tempPer++;
     }//end if
-    if (((int)random(0, 15)) == 1 && (tempPer-1) >= 1.0f)
+    if (((int)random(0, 15)) == 1 && (tempPer-1) > 0.0f)
     {
       tempPer--;
     }//end if
@@ -197,7 +186,7 @@ class Ship extends Dimension
     {
       reactPer++;
     }//end if
-    if (((int)random(0, 5)) == 1 && (reactPer-1) >= 1.0f)
+    if (((int)random(0, 5)) == 1 && (reactPer-1) > 0.0f)
     {
       reactPer--;
     }//end if

@@ -87,6 +87,9 @@ class DisplayData extends Dimension
     }//end for
   }//end Health
   
+  /*
+    Method to display engine data averages
+  */
   void Engine()
   {
     textAlign(CENTER);
@@ -114,7 +117,11 @@ class DisplayData extends Dimension
     }//end for
   }//end Engine
   
-  void Fuel()
+  /*
+    Method to display Temperature data averages
+  */
+  
+  void Temp()
   {
     textAlign(CENTER);
     textSize(map(30, 0, finalx + finaly, 0, width + height));
@@ -140,6 +147,10 @@ class DisplayData extends Dimension
       }//end if
     }//end for
   }//end Fuel
+  
+  /*
+    Method to display Shields data averages
+  */
   
   void Shields()
   {
@@ -168,6 +179,10 @@ class DisplayData extends Dimension
     }//end for
   }//end Shields
   
+  /*
+    Method to display Oxygen data averages
+  */
+  
   void Oxygen()
   {
     textAlign(CENTER);
@@ -194,6 +209,10 @@ class DisplayData extends Dimension
       }//end if
     }//end for
   }//end Shields
+  
+  /*
+    Method to display Reactor data averages
+  */
   
   void Reactor()
   {

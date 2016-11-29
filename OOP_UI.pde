@@ -274,7 +274,7 @@ void draw()
           }//end case 0
           case 2:
           {
-            statistic.Fuel();
+            statistic.Temp();
             break;
           }//end case 0
           case 3:
