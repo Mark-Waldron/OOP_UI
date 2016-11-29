@@ -83,7 +83,7 @@ The Data page displays the averages of every statistic from each visit to a user
 
 * The spike lines in the heart rate monitor are calculated via trigonometric methods.
 
-* SoundFile objects are stored in an array list.  (Polymorphism)
+* SoundFile objects are stored in an array list.
 
 * Radar scope generates random black nodes within its diameter.
 
